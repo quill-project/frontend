@@ -1,0 +1,10 @@
+{
+    "name": "frontend",
+    "authors": ["schwalbe_t"],
+    "description": "Automatically generated bindings for all frontend browser APIs.",
+    "type": "library",
+    "backend": "js",
+    "dependencies": [
+        "https://github.com/quill-project/std-js"
+    ]
+}
