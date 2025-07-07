@@ -5,6 +5,7 @@
     "type": "library",
     "backend": "js",
     "dependencies": [
-        "https://github.com/quill-project/std-js"
+        "https://github.com/quill-project/std-js",
+        "https://github.com/quill-project/webidl"
     ]
 }
