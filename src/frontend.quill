@@ -72,7 +72,7 @@ pub ext fun Animation::from_mevent_target(base: mut EventTarget) -> mut Animatio
 "
 
 pub ext fun Animation::from_omanimation_effect_omanimation_timeline(effect: Option[mut AnimationEffect], timeline: Option[mut AnimationTimeline]) -> mut Animation
-    = "new Animation(#fun(Option::as_js[mut AnimationEffect])(#var(effect)), #fun(Option::as_js[mut AnimationTimeline])(#var(timeline)));"
+    = "return new Animation(#fun(Option::as_js[mut AnimationEffect])(#var(effect)), #fun(Option::as_js[mut AnimationTimeline])(#var(timeline)));"
 
 pub ext fun Animation::effect(self: Animation) -> Option[mut AnimationEffect]
     = "return #fun(Option::from_js[mut AnimationEffect])(#var(self).effect);"
@@ -273,7 +273,7 @@ pub val AnimationTriggerBehavior::State: String = "state"
 struct AnimationTrigger()
 
 pub ext fun AnimationTrigger::from_manimation_trigger_options(options: mut AnimationTriggerOptions) -> mut AnimationTrigger
-    = "new AnimationTrigger(#fun(AnimationTriggerOptions::as_js)(#var(options)));"
+    = "return new AnimationTrigger(#fun(AnimationTriggerOptions::as_js)(#var(options)));"
 
 pub ext fun AnimationTrigger::timeline(self: AnimationTrigger) -> Option[mut AnimationTimeline]
     = "return #fun(Option::from_js[mut AnimationTimeline])(#var(self).timeline);"
@@ -1637,7 +1637,7 @@ pub ext fun DocumentTimeline::from_manimation_timeline(base: mut AnimationTimeli
 "
 
 pub ext fun DocumentTimeline::from_mdocument_timeline_options(options: mut DocumentTimelineOptions) -> mut DocumentTimeline
-    = "new DocumentTimeline(#fun(DocumentTimelineOptions::as_js)(#var(options)));"
+    = "return new DocumentTimeline(#fun(DocumentTimelineOptions::as_js)(#var(options)));"
 
 pub ext fun DocumentTimeline::current_time(self: DocumentTimeline) -> Option[JsValue]
     = "return #fun(Option::from_js[JsValue])(#var(self).currentTime);"
@@ -1881,10 +1881,10 @@ pub ext fun KeyframeEffect::from_manimation_effect(base: mut AnimationEffect) ->
 "
 
 pub ext fun KeyframeEffect::from_omelement_oobj_any(target: Option[mut Element], keyframes: Option[JsObject], options: JsValue) -> mut KeyframeEffect
-    = "new KeyframeEffect(#fun(Option::as_js[mut Element])(#var(target)), #fun(Option::as_js[JsObject])(#var(keyframes)), #var(options));"
+    = "return new KeyframeEffect(#fun(Option::as_js[mut Element])(#var(target)), #fun(Option::as_js[JsObject])(#var(keyframes)), #var(options));"
 
 pub ext fun KeyframeEffect::from_mkeyframe_effect(source: mut KeyframeEffect) -> mut KeyframeEffect
-    = "new KeyframeEffect(#fun(KeyframeEffect::as_js)(#var(source)));"
+    = "return new KeyframeEffect(#fun(KeyframeEffect::as_js)(#var(source)));"
 
 pub ext fun KeyframeEffect::target(self: KeyframeEffect) -> Option[mut Element]
     = "return #fun(Option::from_js[mut Element])(#var(self).target);"
@@ -2069,7 +2069,7 @@ pub ext fun ScrollTimeline::from_manimation_timeline(base: mut AnimationTimeline
 "
 
 pub ext fun ScrollTimeline::from_mscroll_timeline_options(options: mut ScrollTimelineOptions) -> mut ScrollTimeline
-    = "new ScrollTimeline(#fun(ScrollTimelineOptions::as_js)(#var(options)));"
+    = "return new ScrollTimeline(#fun(ScrollTimelineOptions::as_js)(#var(options)));"
 
 pub ext fun ScrollTimeline::source(self: ScrollTimeline) -> Option[mut Element]
     = "return #fun(Option::from_js[mut Element])(#var(self).source);"
@@ -2165,7 +2165,7 @@ pub ext fun ViewTimeline::from_manimation_timeline(base: mut AnimationTimeline) 
 "
 
 pub ext fun ViewTimeline::from_mview_timeline_options(options: mut ViewTimelineOptions) -> mut ViewTimeline
-    = "new ViewTimeline(#fun(ViewTimelineOptions::as_js)(#var(options)));"
+    = "return new ViewTimeline(#fun(ViewTimelineOptions::as_js)(#var(options)));"
 
 pub ext fun ViewTimeline::subject(self: ViewTimeline) -> Option[mut Element]
     = "return #fun(Option::from_js[mut Element])(#var(self).subject);"
@@ -2225,7 +2225,7 @@ pub ext fun ViewTimelineOptions::as_js(self: ViewTimelineOptions) -> JsValue = "
 struct DataTransfer()
 
 pub ext fun DataTransfer::new() -> mut DataTransfer
-    = "new DataTransfer();"
+    = "return new DataTransfer();"
 
 pub ext fun DataTransfer::drop_effect(self: DataTransfer) -> String
     = "return #fun(String::from_js)(#var(self).dropEffect);"
@@ -5032,7 +5032,7 @@ pub ext fun CSSStyleSheet::from_mstyle_sheet(base: mut StyleSheet) -> mut CSSSty
 "
 
 pub ext fun CSSStyleSheet::from_mcss_style_sheet_init(options: mut CSSStyleSheetInit) -> mut CSSStyleSheet
-    = "new CSSStyleSheet(#fun(CSSStyleSheetInit::as_js)(#var(options)));"
+    = "return new CSSStyleSheet(#fun(CSSStyleSheetInit::as_js)(#var(options)));"
 
 pub ext fun CSSStyleSheet::owner_rule(self: CSSStyleSheet) -> Option[mut CSSRule]
     = "return #fun(Option::from_js[mut CSSRule])(#var(self).ownerRule);"
@@ -5384,7 +5384,7 @@ pub ext fun CSSHSL::from_mcss_color_value(base: mut CSSColorValue) -> mut CSSHSL
 "
 
 pub ext fun CSSHSL::from_mcss_numeric_value_any_any_any(h: mut CSSNumericValue, s: JsValue, l: JsValue, alpha: JsValue) -> mut CSSHSL
-    = "new CSSHSL(#fun(CSSNumericValue::as_js)(#var(h)), #var(s), #var(l), #var(alpha));"
+    = "return new CSSHSL(#fun(CSSNumericValue::as_js)(#var(h)), #var(s), #var(l), #var(alpha));"
 
 pub ext fun CSSHSL::h(self: CSSHSL) -> mut CSSNumericValue
     = "return #fun(CSSNumericValue::from_js)(#var(self).h);"
@@ -5461,7 +5461,7 @@ pub ext fun CSSHWB::from_mcss_color_value(base: mut CSSColorValue) -> mut CSSHWB
 "
 
 pub ext fun CSSHWB::from_mcss_numeric_value_any_any_any(h: mut CSSNumericValue, w: JsValue, b: JsValue, alpha: JsValue) -> mut CSSHWB
-    = "new CSSHWB(#fun(CSSNumericValue::as_js)(#var(h)), #var(w), #var(b), #var(alpha));"
+    = "return new CSSHWB(#fun(CSSNumericValue::as_js)(#var(h)), #var(w), #var(b), #var(alpha));"
 
 pub ext fun CSSHWB::h(self: CSSHWB) -> mut CSSNumericValue
     = "return #fun(CSSNumericValue::from_js)(#var(self).h);"
@@ -5583,7 +5583,7 @@ pub ext fun CSSKeywordValue::from_mcss_style_value(base: mut CSSStyleValue) -> m
 "
 
 pub ext fun CSSKeywordValue::from_str(keyword: String) -> mut CSSKeywordValue
-    = "new CSSKeywordValue(#fun(String::as_js)(#var(keyword)));"
+    = "return new CSSKeywordValue(#fun(String::as_js)(#var(keyword)));"
 
 pub ext fun CSSKeywordValue::value(self: CSSKeywordValue) -> String
     = "return #fun(String::from_js)(#var(self).value);"
@@ -5685,7 +5685,7 @@ pub ext fun CSSMathClamp::from_mcss_style_value(base: mut CSSStyleValue) -> mut 
 "
 
 pub ext fun CSSMathClamp::from_any_any_any(lower: JsValue, value: JsValue, upper: JsValue) -> mut CSSMathClamp
-    = "new CSSMathClamp(#var(lower), #var(value), #var(upper));"
+    = "return new CSSMathClamp(#var(lower), #var(value), #var(upper));"
 
 pub ext fun CSSMathClamp::lower(self: CSSMathClamp) -> JsValue
     = "return #var(self).lower;"
@@ -5848,7 +5848,7 @@ pub ext fun CSSMathInvert::from_mcss_style_value(base: mut CSSStyleValue) -> mut
 "
 
 pub ext fun CSSMathInvert::from_any(arg: JsValue) -> mut CSSMathInvert
-    = "new CSSMathInvert(#var(arg));"
+    = "return new CSSMathInvert(#var(arg));"
 
 pub ext fun CSSMathInvert::value(self: CSSMathInvert) -> JsValue
     = "return #var(self).value;"
@@ -6005,7 +6005,7 @@ pub ext fun CSSMathMax::from_mcss_style_value(base: mut CSSStyleValue) -> mut CS
 "
 
 pub ext fun CSSMathMax::from_any(...args: List[JsValue]) -> mut CSSMathMax
-    = "new CSSMathMax((#var(args)).map(v => v));"
+    = "return new CSSMathMax((#var(args)).map(v => v));"
 
 pub ext fun CSSMathMax::values(self: CSSMathMax) -> mut CSSNumericArray
     = "return #fun(CSSNumericArray::from_js)(#var(self).values);"
@@ -6162,7 +6162,7 @@ pub ext fun CSSMathMin::from_mcss_style_value(base: mut CSSStyleValue) -> mut CS
 "
 
 pub ext fun CSSMathMin::from_any(...args: List[JsValue]) -> mut CSSMathMin
-    = "new CSSMathMin((#var(args)).map(v => v));"
+    = "return new CSSMathMin((#var(args)).map(v => v));"
 
 pub ext fun CSSMathMin::values(self: CSSMathMin) -> mut CSSNumericArray
     = "return #fun(CSSNumericArray::from_js)(#var(self).values);"
@@ -6319,7 +6319,7 @@ pub ext fun CSSMathNegate::from_mcss_style_value(base: mut CSSStyleValue) -> mut
 "
 
 pub ext fun CSSMathNegate::from_any(arg: JsValue) -> mut CSSMathNegate
-    = "new CSSMathNegate(#var(arg));"
+    = "return new CSSMathNegate(#var(arg));"
 
 pub ext fun CSSMathNegate::value(self: CSSMathNegate) -> JsValue
     = "return #var(self).value;"
@@ -6476,7 +6476,7 @@ pub ext fun CSSMathProduct::from_mcss_style_value(base: mut CSSStyleValue) -> mu
 "
 
 pub ext fun CSSMathProduct::from_any(...args: List[JsValue]) -> mut CSSMathProduct
-    = "new CSSMathProduct((#var(args)).map(v => v));"
+    = "return new CSSMathProduct((#var(args)).map(v => v));"
 
 pub ext fun CSSMathProduct::values(self: CSSMathProduct) -> mut CSSNumericArray
     = "return #fun(CSSNumericArray::from_js)(#var(self).values);"
@@ -6633,7 +6633,7 @@ pub ext fun CSSMathSum::from_mcss_style_value(base: mut CSSStyleValue) -> mut CS
 "
 
 pub ext fun CSSMathSum::from_any(...args: List[JsValue]) -> mut CSSMathSum
-    = "new CSSMathSum((#var(args)).map(v => v));"
+    = "return new CSSMathSum((#var(args)).map(v => v));"
 
 pub ext fun CSSMathSum::values(self: CSSMathSum) -> mut CSSNumericArray
     = "return #fun(CSSNumericArray::from_js)(#var(self).values);"
@@ -6877,7 +6877,7 @@ pub ext fun CSSMatrixComponent::from_mcss_transform_component(base: mut CSSTrans
 "
 
 pub ext fun CSSMatrixComponent::from_mdom_matrix_read_only_mcss_matrix_component_options(matrix: mut DOMMatrixReadOnly, options: mut CSSMatrixComponentOptions) -> mut CSSMatrixComponent
-    = "new CSSMatrixComponent(#fun(DOMMatrixReadOnly::as_js)(#var(matrix)), #fun(CSSMatrixComponentOptions::as_js)(#var(options)));"
+    = "return new CSSMatrixComponent(#fun(DOMMatrixReadOnly::as_js)(#var(matrix)), #fun(CSSMatrixComponentOptions::as_js)(#var(options)));"
 
 pub ext fun CSSMatrixComponent::matrix(self: CSSMatrixComponent) -> mut DOMMatrix
     = "return #fun(DOMMatrix::from_js)(#var(self).matrix);"
@@ -7113,7 +7113,7 @@ pub ext fun CSSPerspective::from_mcss_transform_component(base: mut CSSTransform
 "
 
 pub ext fun CSSPerspective::from_any(length: JsValue) -> mut CSSPerspective
-    = "new CSSPerspective(#var(length));"
+    = "return new CSSPerspective(#var(length));"
 
 pub ext fun CSSPerspective::length(self: CSSPerspective) -> JsValue
     = "return #var(self).length;"
@@ -7168,7 +7168,7 @@ pub ext fun CSSPositionValue::from_mcss_style_value(base: mut CSSStyleValue) -> 
 "
 
 pub ext fun CSSPositionValue::from_mcss_numeric_value_mcss_numeric_value(x: mut CSSNumericValue, y: mut CSSNumericValue) -> mut CSSPositionValue
-    = "new CSSPositionValue(#fun(CSSNumericValue::as_js)(#var(x)), #fun(CSSNumericValue::as_js)(#var(y)));"
+    = "return new CSSPositionValue(#fun(CSSNumericValue::as_js)(#var(x)), #fun(CSSNumericValue::as_js)(#var(y)));"
 
 pub ext fun CSSPositionValue::x(self: CSSPositionValue) -> mut CSSNumericValue
     = "return #fun(CSSNumericValue::from_js)(#var(self).x);"
@@ -7228,7 +7228,7 @@ pub ext fun CSSRGB::from_mcss_color_value(base: mut CSSColorValue) -> mut CSSRGB
 "
 
 pub ext fun CSSRGB::from_any_any_any_any(r: JsValue, g: JsValue, b: JsValue, alpha: JsValue) -> mut CSSRGB
-    = "new CSSRGB(#var(r), #var(g), #var(b), #var(alpha));"
+    = "return new CSSRGB(#var(r), #var(g), #var(b), #var(alpha));"
 
 pub ext fun CSSRGB::r(self: CSSRGB) -> JsValue
     = "return #var(self).r;"
@@ -7305,10 +7305,10 @@ pub ext fun CSSRotate::from_mcss_transform_component(base: mut CSSTransformCompo
 "
 
 pub ext fun CSSRotate::from_mcss_numeric_value(angle_value: mut CSSNumericValue) -> mut CSSRotate
-    = "new CSSRotate(#fun(CSSNumericValue::as_js)(#var(angle_value)));"
+    = "return new CSSRotate(#fun(CSSNumericValue::as_js)(#var(angle_value)));"
 
 pub ext fun CSSRotate::from_any_any_any_mcss_numeric_value(x: JsValue, y: JsValue, z: JsValue, angle: mut CSSNumericValue) -> mut CSSRotate
-    = "new CSSRotate(#var(x), #var(y), #var(z), #fun(CSSNumericValue::as_js)(#var(angle)));"
+    = "return new CSSRotate(#var(x), #var(y), #var(z), #fun(CSSNumericValue::as_js)(#var(angle)));"
 
 pub ext fun CSSRotate::angle(self: CSSRotate) -> mut CSSNumericValue
     = "return #fun(CSSNumericValue::from_js)(#var(self).angle);"
@@ -7381,7 +7381,7 @@ pub ext fun CSSScale::from_mcss_transform_component(base: mut CSSTransformCompon
 "
 
 pub ext fun CSSScale::from_any_any_any(x: JsValue, y: JsValue, z: JsValue) -> mut CSSScale
-    = "new CSSScale(#var(x), #var(y), #var(z));"
+    = "return new CSSScale(#var(x), #var(y), #var(z));"
 
 pub ext fun CSSScale::x(self: CSSScale) -> JsValue
     = "return #var(self).x;"
@@ -7448,7 +7448,7 @@ pub ext fun CSSSkew::from_mcss_transform_component(base: mut CSSTransformCompone
 "
 
 pub ext fun CSSSkew::from_mcss_numeric_value_mcss_numeric_value(ax: mut CSSNumericValue, ay: mut CSSNumericValue) -> mut CSSSkew
-    = "new CSSSkew(#fun(CSSNumericValue::as_js)(#var(ax)), #fun(CSSNumericValue::as_js)(#var(ay)));"
+    = "return new CSSSkew(#fun(CSSNumericValue::as_js)(#var(ax)), #fun(CSSNumericValue::as_js)(#var(ay)));"
 
 pub ext fun CSSSkew::ax(self: CSSSkew) -> mut CSSNumericValue
     = "return #fun(CSSNumericValue::from_js)(#var(self).ax);"
@@ -7509,7 +7509,7 @@ pub ext fun CSSSkewX::from_mcss_transform_component(base: mut CSSTransformCompon
 "
 
 pub ext fun CSSSkewX::from_mcss_numeric_value(ax: mut CSSNumericValue) -> mut CSSSkewX
-    = "new CSSSkewX(#fun(CSSNumericValue::as_js)(#var(ax)));"
+    = "return new CSSSkewX(#fun(CSSNumericValue::as_js)(#var(ax)));"
 
 pub ext fun CSSSkewX::ax(self: CSSSkewX) -> mut CSSNumericValue
     = "return #fun(CSSNumericValue::from_js)(#var(self).ax);"
@@ -7564,7 +7564,7 @@ pub ext fun CSSSkewY::from_mcss_transform_component(base: mut CSSTransformCompon
 "
 
 pub ext fun CSSSkewY::from_mcss_numeric_value(ay: mut CSSNumericValue) -> mut CSSSkewY
-    = "new CSSSkewY(#fun(CSSNumericValue::as_js)(#var(ay)));"
+    = "return new CSSSkewY(#fun(CSSNumericValue::as_js)(#var(ay)));"
 
 pub ext fun CSSSkewY::ay(self: CSSSkewY) -> mut CSSNumericValue
     = "return #fun(CSSNumericValue::from_js)(#var(self).ay);"
@@ -7662,7 +7662,7 @@ pub ext fun CSSTransformValue::from_mcss_style_value(base: mut CSSStyleValue) ->
 "
 
 pub ext fun CSSTransformValue::from_list_mcss_transform_component(transforms: List[mut CSSTransformComponent]) -> mut CSSTransformValue
-    = "new CSSTransformValue(#fun(List::as_js[mut CSSTransformComponent])(#var(transforms)));"
+    = "return new CSSTransformValue(#fun(List::as_js[mut CSSTransformComponent])(#var(transforms)));"
 
 pub ext fun CSSTransformValue::length(self: CSSTransformValue) -> Int
     = "return #fun(Int::from_js)(#var(self).length);"
@@ -7730,7 +7730,7 @@ pub ext fun CSSTranslate::from_mcss_transform_component(base: mut CSSTransformCo
 "
 
 pub ext fun CSSTranslate::from_mcss_numeric_value_mcss_numeric_value_mcss_numeric_value(x: mut CSSNumericValue, y: mut CSSNumericValue, z: mut CSSNumericValue) -> mut CSSTranslate
-    = "new CSSTranslate(#fun(CSSNumericValue::as_js)(#var(x)), #fun(CSSNumericValue::as_js)(#var(y)), #fun(CSSNumericValue::as_js)(#var(z)));"
+    = "return new CSSTranslate(#fun(CSSNumericValue::as_js)(#var(x)), #fun(CSSNumericValue::as_js)(#var(y)), #fun(CSSNumericValue::as_js)(#var(z)));"
 
 pub ext fun CSSTranslate::x(self: CSSTranslate) -> mut CSSNumericValue
     = "return #fun(CSSNumericValue::from_js)(#var(self).x);"
@@ -7821,7 +7821,7 @@ pub ext fun CSSUnitValue::from_mcss_style_value(base: mut CSSStyleValue) -> mut 
 "
 
 pub ext fun CSSUnitValue::from_flt_str(value: Float, unit_: String) -> mut CSSUnitValue
-    = "new CSSUnitValue(#fun(Float::as_js)(#var(value)), #fun(String::as_js)(#var(unit_)));"
+    = "return new CSSUnitValue(#fun(Float::as_js)(#var(value)), #fun(String::as_js)(#var(unit_)));"
 
 pub ext fun CSSUnitValue::value(self: CSSUnitValue) -> Float
     = "return #fun(Float::from_js)(#var(self).value);"
@@ -7935,7 +7935,7 @@ pub ext fun CSSUnparsedValue::from_mcss_style_value(base: mut CSSStyleValue) -> 
 "
 
 pub ext fun CSSUnparsedValue::from_list_any(members: List[JsValue]) -> mut CSSUnparsedValue
-    = "new CSSUnparsedValue(#fun(List::as_js[JsValue])(#var(members)));"
+    = "return new CSSUnparsedValue(#fun(List::as_js[JsValue])(#var(members)));"
 
 pub ext fun CSSUnparsedValue::length(self: CSSUnparsedValue) -> Int
     = "return #fun(Int::from_js)(#var(self).length);"
@@ -7971,7 +7971,7 @@ pub fun CSSUnparsedValue::from_js(v: JsValue) -> mut CSSUnparsedValue = JsValue:
 struct CSSVariableReferenceValue()
 
 pub ext fun CSSVariableReferenceValue::from_str_omcss_unparsed_value(variable: String, fallback: Option[mut CSSUnparsedValue]) -> mut CSSVariableReferenceValue
-    = "new CSSVariableReferenceValue(#fun(String::as_js)(#var(variable)), #fun(Option::as_js[mut CSSUnparsedValue])(#var(fallback)));"
+    = "return new CSSVariableReferenceValue(#fun(String::as_js)(#var(variable)), #fun(Option::as_js[mut CSSUnparsedValue])(#var(fallback)));"
 
 pub ext fun CSSVariableReferenceValue::variable(self: CSSVariableReferenceValue) -> String
     = "return #fun(String::from_js)(#var(self).variable);"
@@ -8493,7 +8493,7 @@ pub val FontFaceLoadStatus::Error: String = "error"
 struct FontFace()
 
 pub ext fun FontFace::from_str_any_mfont_face_descriptors(family: String, source: JsValue, descriptors: mut FontFaceDescriptors) -> mut FontFace
-    = "new FontFace(#fun(String::as_js)(#var(family)), #var(source), #fun(FontFaceDescriptors::as_js)(#var(descriptors)));"
+    = "return new FontFace(#fun(String::as_js)(#var(family)), #var(source), #fun(FontFaceDescriptors::as_js)(#var(descriptors)));"
 
 pub ext fun FontFace::family(self: FontFace) -> String
     = "return #fun(String::from_js)(#var(self).family);"
@@ -8754,7 +8754,7 @@ pub ext fun FontFaceSetLoadEvent::from_mevent(base: mut Event) -> mut FontFaceSe
 "
 
 pub ext fun FontFaceSetLoadEvent::from_str_mfont_face_set_load_event_init(type: String, event_init_dict: mut FontFaceSetLoadEventInit) -> mut FontFaceSetLoadEvent
-    = "new FontFaceSetLoadEvent(#fun(String::as_js)(#var(type)), #fun(FontFaceSetLoadEventInit::as_js)(#var(event_init_dict)));"
+    = "return new FontFaceSetLoadEvent(#fun(String::as_js)(#var(type)), #fun(FontFaceSetLoadEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun FontFaceSetLoadEvent::fontfaces(self: FontFaceSetLoadEvent) -> JsValue
     = "return #var(self).fontfaces;"
@@ -9013,7 +9013,7 @@ pub ext fun MediaQueryListEvent::from_mevent(base: mut Event) -> mut MediaQueryL
 "
 
 pub ext fun MediaQueryListEvent::from_str_mmedia_query_list_event_init(type: String, event_init_dict: mut MediaQueryListEventInit) -> mut MediaQueryListEvent
-    = "new MediaQueryListEvent(#fun(String::as_js)(#var(type)), #fun(MediaQueryListEventInit::as_js)(#var(event_init_dict)));"
+    = "return new MediaQueryListEvent(#fun(String::as_js)(#var(type)), #fun(MediaQueryListEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun MediaQueryListEvent::media(self: MediaQueryListEvent) -> String
     = "return #fun(String::from_js)(#var(self).media);"
@@ -9269,7 +9269,7 @@ pub ext fun ContentVisibilityAutoStateChangeEvent::from_mevent(base: mut Event) 
 "
 
 pub ext fun ContentVisibilityAutoStateChangeEvent::from_str_mcontent_visibility_auto_state_change_event_init(type: String, event_init_dict: mut ContentVisibilityAutoStateChangeEventInit) -> mut ContentVisibilityAutoStateChangeEvent
-    = "new ContentVisibilityAutoStateChangeEvent(#fun(String::as_js)(#var(type)), #fun(ContentVisibilityAutoStateChangeEventInit::as_js)(#var(event_init_dict)));"
+    = "return new ContentVisibilityAutoStateChangeEvent(#fun(String::as_js)(#var(type)), #fun(ContentVisibilityAutoStateChangeEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun ContentVisibilityAutoStateChangeEvent::skipped(self: ContentVisibilityAutoStateChangeEvent) -> Bool
     = "return #fun(Bool::from_js)(#var(self).skipped);"
@@ -9402,7 +9402,7 @@ pub ext fun ContentVisibilityAutoStateChangeEventInit::as_js(self: ContentVisibi
 struct AbortController()
 
 pub ext fun AbortController::new() -> mut AbortController
-    = "new AbortController();"
+    = "return new AbortController();"
 
 pub ext fun AbortController::signal(self: AbortController) -> mut AbortSignal
     = "return #fun(AbortSignal::from_js)(#var(self).signal);"
@@ -9810,7 +9810,7 @@ pub ext fun AttributePart::from_mpart(base: mut Part) -> mut AttributePart = "
 "
 
 pub ext fun AttributePart::from_any_melement_str_mpart_init(root: JsValue, element: mut Element, local_name: String, init: mut PartInit) -> mut AttributePart
-    = "new AttributePart(#var(root), #fun(Element::as_js)(#var(element)), #fun(String::as_js)(#var(local_name)), #fun(PartInit::as_js)(#var(init)));"
+    = "return new AttributePart(#var(root), #fun(Element::as_js)(#var(element)), #fun(String::as_js)(#var(local_name)), #fun(PartInit::as_js)(#var(init)));"
 
 pub ext fun AttributePart::local_name(self: AttributePart) -> String
     = "return #fun(String::from_js)(#var(self).localName);"
@@ -10464,7 +10464,7 @@ pub ext fun ChildNodePart::from_mpart(base: mut Part) -> mut ChildNodePart = "
 "
 
 pub ext fun ChildNodePart::from_any_mnode_mnode_mpart_init(root: JsValue, previous_sibling: mut Node, next_sibling: mut Node, init: mut PartInit) -> mut ChildNodePart
-    = "new ChildNodePart(#var(root), #fun(Node::as_js)(#var(previous_sibling)), #fun(Node::as_js)(#var(next_sibling)), #fun(PartInit::as_js)(#var(init)));"
+    = "return new ChildNodePart(#var(root), #fun(Node::as_js)(#var(previous_sibling)), #fun(Node::as_js)(#var(next_sibling)), #fun(PartInit::as_js)(#var(init)));"
 
 pub ext fun ChildNodePart::previous_sibling(self: ChildNodePart) -> mut Node
     = "return #fun(Node::from_js)(#var(self).previousSibling);"
@@ -10593,7 +10593,7 @@ pub ext fun Comment::from_mevent_target(base: mut EventTarget) -> mut Comment = 
 "
 
 pub ext fun Comment::from_str(data: String) -> mut Comment
-    = "new Comment(#fun(String::as_js)(#var(data)));"
+    = "return new Comment(#fun(String::as_js)(#var(data)));"
 
 pub ext fun Comment::data(self: Comment) -> String
     = "return #fun(String::from_js)(#var(self).data);"
@@ -10851,7 +10851,7 @@ pub ext fun Document::from_mevent_target(base: mut EventTarget) -> mut Document 
 "
 
 pub ext fun Document::new() -> mut Document
-    = "new Document();"
+    = "return new Document();"
 
 pub ext fun Document::implementation(self: Document) -> mut DOMImplementation
     = "return #fun(DOMImplementation::from_js)(#var(self).implementation);"
@@ -11581,7 +11581,7 @@ pub ext fun DocumentFragment::from_mevent_target(base: mut EventTarget) -> mut D
 "
 
 pub ext fun DocumentFragment::new() -> mut DocumentFragment
-    = "new DocumentFragment();"
+    = "return new DocumentFragment();"
 
 pub ext fun DocumentFragment::node_type(self: DocumentFragment) -> Int
     = "return #fun(Int::from_js)(#var(self).nodeType);"
@@ -12078,7 +12078,7 @@ pub val DocumentType::document_position_implementation_specific: Int = 32
 struct DOMException()
 
 pub ext fun DOMException::from_str_str(message: String, name: String) -> mut DOMException
-    = "new DOMException(#fun(String::as_js)(#var(message)), #fun(String::as_js)(#var(name)));"
+    = "return new DOMException(#fun(String::as_js)(#var(message)), #fun(String::as_js)(#var(name)));"
 
 pub ext fun DOMException::code(self: DOMException) -> Int
     = "return #fun(Int::from_js)(#var(self).code);"
@@ -13054,7 +13054,7 @@ pub ext fun CustomEvent::from_mevent(base: mut Event) -> mut CustomEvent = "
 "
 
 pub ext fun CustomEvent::from_str_mcustom_event_init(type: String, event_init_dict: mut CustomEventInit) -> mut CustomEvent
-    = "new CustomEvent(#fun(String::as_js)(#var(type)), #fun(CustomEventInit::as_js)(#var(event_init_dict)));"
+    = "return new CustomEvent(#fun(String::as_js)(#var(type)), #fun(CustomEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun CustomEvent::detail(self: CustomEvent) -> JsValue
     = "return #var(self).detail;"
@@ -13192,7 +13192,7 @@ pub ext fun CustomEventInit::as_js(self: CustomEventInit) -> JsValue = "
 struct Event()
 
 pub ext fun Event::from_str_mevent_init(type: String, event_init_dict: mut EventInit) -> mut Event
-    = "new Event(#fun(String::as_js)(#var(type)), #fun(EventInit::as_js)(#var(event_init_dict)));"
+    = "return new Event(#fun(String::as_js)(#var(type)), #fun(EventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun Event::type(self: Event) -> String
     = "return #fun(String::from_js)(#var(self).type);"
@@ -13424,7 +13424,7 @@ pub ext fun ObservableEventListenerOptions::as_js(self: ObservableEventListenerO
 struct EventTarget()
 
 pub ext fun EventTarget::new() -> mut EventTarget
-    = "new EventTarget();"
+    = "return new EventTarget();"
 
 pub ext fun EventTarget::add_event_listener(__self: mut EventTarget, type: String, listener: Option[Fun(mut Event) -> Unit], options: JsValue) -> Unit = "
     const r = #var(__self).addEventListener(#fun(String::as_js)(#var(type)), #fun(Option::as_js[Fun(mut Event) -> Unit])(#var(listener)), #var(options));
@@ -13516,7 +13516,7 @@ pub ext fun ImportNodeOptions::as_js(self: ImportNodeOptions) -> JsValue = "
 struct MutationObserver()
 
 pub ext fun MutationObserver::from_f_list_mmutation_record_mmutation_observer_unit(callback: Fun(List[mut MutationRecord], mut MutationObserver) -> Unit) -> mut MutationObserver
-    = "new MutationObserver(((p0, p1) => { const r = #var(callback)(#fun(List::from_js[mut MutationRecord])(p0), #fun(MutationObserver::from_js)(p1)); return #fun(Unit::as_js)(r); }));"
+    = "return new MutationObserver(((p0, p1) => { const r = #var(callback)(#fun(List::from_js[mut MutationRecord])(p0), #fun(MutationObserver::from_js)(p1)); return #fun(Unit::as_js)(r); }));"
 
 pub ext fun MutationObserver::observe(__self: mut MutationObserver, target: mut Node, options: mut MutationObserverInit) -> Unit = "
     const r = #var(__self).observe(#fun(Node::as_js)(#var(target)), #fun(MutationObserverInit::as_js)(#var(options)));
@@ -13937,7 +13937,7 @@ pub ext fun NodePart::from_mpart(base: mut Part) -> mut NodePart = "
 "
 
 pub ext fun NodePart::from_any_mnode_mpart_init(root: JsValue, node: mut Node, init: mut PartInit) -> mut NodePart
-    = "new NodePart(#var(root), #fun(Node::as_js)(#var(node)), #fun(PartInit::as_js)(#var(init)));"
+    = "return new NodePart(#var(root), #fun(Node::as_js)(#var(node)), #fun(PartInit::as_js)(#var(init)));"
 
 pub ext fun NodePart::node(self: NodePart) -> mut Node
     = "return #fun(Node::from_js)(#var(self).node);"
@@ -14035,7 +14035,7 @@ pub ext fun SubscribeOptions::as_js(self: SubscribeOptions) -> JsValue = "
 struct Observable()
 
 pub ext fun Observable::from_f_msubscriber_unit(callback: Fun(mut Subscriber) -> Unit) -> mut Observable
-    = "new Observable(((p0) => { const r = #var(callback)(#fun(Subscriber::from_js)(p0)); return #fun(Unit::as_js)(r); }));"
+    = "return new Observable(((p0) => { const r = #var(callback)(#fun(Subscriber::from_js)(p0)); return #fun(Unit::as_js)(r); }));"
 
 pub ext fun Observable::subscribe(__self: mut Observable, observer: JsValue, options: mut SubscribeOptions) -> Unit = "
     const r = #var(__self).subscribe(#var(observer), #fun(SubscribeOptions::as_js)(#var(options)));
@@ -14525,7 +14525,7 @@ pub ext fun QuotaExceededError::from_mdom_exception(base: mut DOMException) -> m
 "
 
 pub ext fun QuotaExceededError::from_str_mquota_exceeded_error_options(message: String, options: mut QuotaExceededErrorOptions) -> mut QuotaExceededError
-    = "new QuotaExceededError(#fun(String::as_js)(#var(message)), #fun(QuotaExceededErrorOptions::as_js)(#var(options)));"
+    = "return new QuotaExceededError(#fun(String::as_js)(#var(message)), #fun(QuotaExceededErrorOptions::as_js)(#var(options)));"
 
 pub ext fun QuotaExceededError::quota(self: QuotaExceededError) -> Option[Float]
     = "return #fun(Option::from_js[Float])(#var(self).quota);"
@@ -14599,7 +14599,7 @@ pub ext fun Range::from_mabstract_range(base: mut AbstractRange) -> mut Range = 
 "
 
 pub ext fun Range::new() -> mut Range
-    = "new Range();"
+    = "return new Range();"
 
 pub ext fun Range::common_ancestor_container(self: Range) -> mut Node
     = "return #fun(Node::from_js)(#var(self).commonAncestorContainer);"
@@ -15168,7 +15168,7 @@ pub ext fun StaticRange::from_mabstract_range(base: mut AbstractRange) -> mut St
 "
 
 pub ext fun StaticRange::from_mstatic_range_init(init: mut StaticRangeInit) -> mut StaticRange
-    = "new StaticRange(#fun(StaticRangeInit::as_js)(#var(init)));"
+    = "return new StaticRange(#fun(StaticRangeInit::as_js)(#var(init)));"
 
 pub ext fun StaticRange::start_container(self: StaticRange) -> mut Node
     = "return #fun(Node::from_js)(#var(self).startContainer);"
@@ -15335,7 +15335,7 @@ pub ext fun Text::from_mevent_target(base: mut EventTarget) -> mut Text = "
 "
 
 pub ext fun Text::from_str(data: String) -> mut Text
-    = "new Text(#fun(String::as_js)(#var(data)));"
+    = "return new Text(#fun(String::as_js)(#var(data)));"
 
 pub ext fun Text::whole_text(self: Text) -> String
     = "return #fun(String::from_js)(#var(self).wholeText);"
@@ -15695,7 +15695,7 @@ pub ext fun CharacterBoundsUpdateEvent::from_mevent(base: mut Event) -> mut Char
 "
 
 pub ext fun CharacterBoundsUpdateEvent::from_str_mcharacter_bounds_update_event_init(type: String, options: mut CharacterBoundsUpdateEventInit) -> mut CharacterBoundsUpdateEvent
-    = "new CharacterBoundsUpdateEvent(#fun(String::as_js)(#var(type)), #fun(CharacterBoundsUpdateEventInit::as_js)(#var(options)));"
+    = "return new CharacterBoundsUpdateEvent(#fun(String::as_js)(#var(type)), #fun(CharacterBoundsUpdateEventInit::as_js)(#var(options)));"
 
 pub ext fun CharacterBoundsUpdateEvent::range_start(self: CharacterBoundsUpdateEvent) -> Int
     = "return #fun(Int::from_js)(#var(self).rangeStart);"
@@ -15858,7 +15858,7 @@ pub ext fun EditContext::from_mevent_target(base: mut EventTarget) -> mut EditCo
 "
 
 pub ext fun EditContext::from_medit_context_init(options: mut EditContextInit) -> mut EditContext
-    = "new EditContext(#fun(EditContextInit::as_js)(#var(options)));"
+    = "return new EditContext(#fun(EditContextInit::as_js)(#var(options)));"
 
 pub ext fun EditContext::text(self: EditContext) -> String
     = "return #fun(String::from_js)(#var(self).text);"
@@ -15999,7 +15999,7 @@ pub val UnderlineThickness::Thick: String = "thick"
 struct TextFormat()
 
 pub ext fun TextFormat::from_mtext_format_init(options: mut TextFormatInit) -> mut TextFormat
-    = "new TextFormat(#fun(TextFormatInit::as_js)(#var(options)));"
+    = "return new TextFormat(#fun(TextFormatInit::as_js)(#var(options)));"
 
 pub ext fun TextFormat::range_start(self: TextFormat) -> Int
     = "return #fun(Int::from_js)(#var(self).rangeStart);"
@@ -16072,7 +16072,7 @@ pub ext fun TextFormatUpdateEvent::from_mevent(base: mut Event) -> mut TextForma
 "
 
 pub ext fun TextFormatUpdateEvent::from_str_mtext_format_update_event_init(type: String, options: mut TextFormatUpdateEventInit) -> mut TextFormatUpdateEvent
-    = "new TextFormatUpdateEvent(#fun(String::as_js)(#var(type)), #fun(TextFormatUpdateEventInit::as_js)(#var(options)));"
+    = "return new TextFormatUpdateEvent(#fun(String::as_js)(#var(type)), #fun(TextFormatUpdateEventInit::as_js)(#var(options)));"
 
 pub ext fun TextFormatUpdateEvent::type(self: TextFormatUpdateEvent) -> String
     = "return #fun(String::from_js)(#var(self).type);"
@@ -16231,7 +16231,7 @@ pub ext fun TextUpdateEvent::from_mevent(base: mut Event) -> mut TextUpdateEvent
 "
 
 pub ext fun TextUpdateEvent::from_str_mtext_update_event_init(type: String, options: mut TextUpdateEventInit) -> mut TextUpdateEvent
-    = "new TextUpdateEvent(#fun(String::as_js)(#var(type)), #fun(TextUpdateEventInit::as_js)(#var(options)));"
+    = "return new TextUpdateEvent(#fun(String::as_js)(#var(type)), #fun(TextUpdateEventInit::as_js)(#var(options)));"
 
 pub ext fun TextUpdateEvent::update_range_start(self: TextUpdateEvent) -> Int
     = "return #fun(Int::from_js)(#var(self).updateRangeStart);"
@@ -16539,7 +16539,7 @@ pub ext fun AnimationEvent::from_mevent(base: mut Event) -> mut AnimationEvent =
 "
 
 pub ext fun AnimationEvent::from_str_manimation_event_init(type: String, event_init_dict: mut AnimationEventInit) -> mut AnimationEvent
-    = "new AnimationEvent(#fun(String::as_js)(#var(type)), #fun(AnimationEventInit::as_js)(#var(event_init_dict)));"
+    = "return new AnimationEvent(#fun(String::as_js)(#var(type)), #fun(AnimationEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun AnimationEvent::animation_name(self: AnimationEvent) -> String
     = "return #fun(String::from_js)(#var(self).animationName);"
@@ -16708,7 +16708,7 @@ pub ext fun AnimationPlaybackEvent::from_mevent(base: mut Event) -> mut Animatio
 "
 
 pub ext fun AnimationPlaybackEvent::from_str_manimation_playback_event_init(type: String, event_init_dict: mut AnimationPlaybackEventInit) -> mut AnimationPlaybackEvent
-    = "new AnimationPlaybackEvent(#fun(String::as_js)(#var(type)), #fun(AnimationPlaybackEventInit::as_js)(#var(event_init_dict)));"
+    = "return new AnimationPlaybackEvent(#fun(String::as_js)(#var(type)), #fun(AnimationPlaybackEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun AnimationPlaybackEvent::current_time(self: AnimationPlaybackEvent) -> Option[JsValue]
     = "return #fun(Option::from_js[JsValue])(#var(self).currentTime);"
@@ -17087,7 +17087,7 @@ pub ext fun ClipboardEvent::from_mevent(base: mut Event) -> mut ClipboardEvent =
 "
 
 pub ext fun ClipboardEvent::from_str_mclipboard_event_init(type: String, event_init_dict: mut ClipboardEventInit) -> mut ClipboardEvent
-    = "new ClipboardEvent(#fun(String::as_js)(#var(type)), #fun(ClipboardEventInit::as_js)(#var(event_init_dict)));"
+    = "return new ClipboardEvent(#fun(String::as_js)(#var(type)), #fun(ClipboardEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun ClipboardEvent::clipboard_data(self: ClipboardEvent) -> Option[mut DataTransfer]
     = "return #fun(Option::from_js[mut DataTransfer])(#var(self).clipboardData);"
@@ -17244,7 +17244,7 @@ pub ext fun CommandEvent::from_mevent(base: mut Event) -> mut CommandEvent = "
 "
 
 pub ext fun CommandEvent::from_str_mcommand_event_init(type: String, event_init_dict: mut CommandEventInit) -> mut CommandEvent
-    = "new CommandEvent(#fun(String::as_js)(#var(type)), #fun(CommandEventInit::as_js)(#var(event_init_dict)));"
+    = "return new CommandEvent(#fun(String::as_js)(#var(type)), #fun(CommandEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun CommandEvent::source(self: CommandEvent) -> Option[mut Element]
     = "return #fun(Option::from_js[mut Element])(#var(self).source);"
@@ -17431,7 +17431,7 @@ pub ext fun CompositionEvent::from_mevent(base: mut Event) -> mut CompositionEve
 "
 
 pub ext fun CompositionEvent::from_str_mcomposition_event_init(type: String, event_init_dict: mut CompositionEventInit) -> mut CompositionEvent
-    = "new CompositionEvent(#fun(String::as_js)(#var(type)), #fun(CompositionEventInit::as_js)(#var(event_init_dict)));"
+    = "return new CompositionEvent(#fun(String::as_js)(#var(type)), #fun(CompositionEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun CompositionEvent::data(self: CompositionEvent) -> String
     = "return #fun(String::from_js)(#var(self).data);"
@@ -17667,7 +17667,7 @@ pub ext fun DragEvent::from_mevent(base: mut Event) -> mut DragEvent = "
 "
 
 pub ext fun DragEvent::from_str_mdrag_event_init(type: String, event_init_dict: mut DragEventInit) -> mut DragEvent
-    = "new DragEvent(#fun(String::as_js)(#var(type)), #fun(DragEventInit::as_js)(#var(event_init_dict)));"
+    = "return new DragEvent(#fun(String::as_js)(#var(type)), #fun(DragEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun DragEvent::data_transfer(self: DragEvent) -> Option[mut DataTransfer]
     = "return #fun(Option::from_js[mut DataTransfer])(#var(self).dataTransfer);"
@@ -17989,7 +17989,7 @@ pub ext fun ErrorEvent::from_mevent(base: mut Event) -> mut ErrorEvent = "
 "
 
 pub ext fun ErrorEvent::from_str_merror_event_init(type: String, event_init_dict: mut ErrorEventInit) -> mut ErrorEvent
-    = "new ErrorEvent(#fun(String::as_js)(#var(type)), #fun(ErrorEventInit::as_js)(#var(event_init_dict)));"
+    = "return new ErrorEvent(#fun(String::as_js)(#var(type)), #fun(ErrorEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun ErrorEvent::message(self: ErrorEvent) -> String
     = "return #fun(String::from_js)(#var(self).message);"
@@ -18194,7 +18194,7 @@ pub ext fun FocusEvent::from_mevent(base: mut Event) -> mut FocusEvent = "
 "
 
 pub ext fun FocusEvent::from_str_mfocus_event_init(type: String, event_init_dict: mut FocusEventInit) -> mut FocusEvent
-    = "new FocusEvent(#fun(String::as_js)(#var(type)), #fun(FocusEventInit::as_js)(#var(event_init_dict)));"
+    = "return new FocusEvent(#fun(String::as_js)(#var(type)), #fun(FocusEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun FocusEvent::related_target(self: FocusEvent) -> Option[mut EventTarget]
     = "return #fun(Option::from_js[mut EventTarget])(#var(self).relatedTarget);"
@@ -18377,7 +18377,7 @@ pub ext fun HashChangeEvent::from_mevent(base: mut Event) -> mut HashChangeEvent
 "
 
 pub ext fun HashChangeEvent::from_str_mhash_change_event_init(type: String, event_init_dict: mut HashChangeEventInit) -> mut HashChangeEvent
-    = "new HashChangeEvent(#fun(String::as_js)(#var(type)), #fun(HashChangeEventInit::as_js)(#var(event_init_dict)));"
+    = "return new HashChangeEvent(#fun(String::as_js)(#var(type)), #fun(HashChangeEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun HashChangeEvent::old_url(self: HashChangeEvent) -> String
     = "return #fun(String::from_js)(#var(self).oldURL);"
@@ -18564,7 +18564,7 @@ pub ext fun InputEvent::from_mevent(base: mut Event) -> mut InputEvent = "
 "
 
 pub ext fun InputEvent::from_str_minput_event_init(type: String, event_init_dict: mut InputEventInit) -> mut InputEvent
-    = "new InputEvent(#fun(String::as_js)(#var(type)), #fun(InputEventInit::as_js)(#var(event_init_dict)));"
+    = "return new InputEvent(#fun(String::as_js)(#var(type)), #fun(InputEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun InputEvent::data(self: InputEvent) -> Option[String]
     = "return #fun(Option::from_js[String])(#var(self).data);"
@@ -18773,7 +18773,7 @@ pub ext fun InterestEvent::from_mevent(base: mut Event) -> mut InterestEvent = "
 "
 
 pub ext fun InterestEvent::from_str_minterest_event_init(type: String, event_init_dict: mut InterestEventInit) -> mut InterestEvent
-    = "new InterestEvent(#fun(String::as_js)(#var(type)), #fun(InterestEventInit::as_js)(#var(event_init_dict)));"
+    = "return new InterestEvent(#fun(String::as_js)(#var(type)), #fun(InterestEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun InterestEvent::source(self: InterestEvent) -> Option[mut Element]
     = "return #fun(Option::from_js[mut Element])(#var(self).source);"
@@ -18954,7 +18954,7 @@ pub ext fun KeyboardEvent::from_mevent(base: mut Event) -> mut KeyboardEvent = "
 "
 
 pub ext fun KeyboardEvent::from_str_mkeyboard_event_init(type: String, event_init_dict: mut KeyboardEventInit) -> mut KeyboardEvent
-    = "new KeyboardEvent(#fun(String::as_js)(#var(type)), #fun(KeyboardEventInit::as_js)(#var(event_init_dict)));"
+    = "return new KeyboardEvent(#fun(String::as_js)(#var(type)), #fun(KeyboardEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun KeyboardEvent::key(self: KeyboardEvent) -> String
     = "return #fun(String::from_js)(#var(self).key);"
@@ -19229,7 +19229,7 @@ pub ext fun MessageEvent::from_mevent(base: mut Event) -> mut MessageEvent = "
 "
 
 pub ext fun MessageEvent::from_str_mmessage_event_init(type: String, event_init_dict: mut MessageEventInit) -> mut MessageEvent
-    = "new MessageEvent(#fun(String::as_js)(#var(type)), #fun(MessageEventInit::as_js)(#var(event_init_dict)));"
+    = "return new MessageEvent(#fun(String::as_js)(#var(type)), #fun(MessageEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun MessageEvent::data(self: MessageEvent) -> JsValue
     = "return #var(self).data;"
@@ -19445,7 +19445,7 @@ pub ext fun MouseEvent::from_mevent(base: mut Event) -> mut MouseEvent = "
 "
 
 pub ext fun MouseEvent::from_str_mmouse_event_init(type: String, event_init_dict: mut MouseEventInit) -> mut MouseEvent
-    = "new MouseEvent(#fun(String::as_js)(#var(type)), #fun(MouseEventInit::as_js)(#var(event_init_dict)));"
+    = "return new MouseEvent(#fun(String::as_js)(#var(type)), #fun(MouseEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun MouseEvent::screen_x(self: MouseEvent) -> Float
     = "return #fun(Float::from_js)(#var(self).screenX);"
@@ -19812,7 +19812,7 @@ pub ext fun OverscrollEvent::from_mevent(base: mut Event) -> mut OverscrollEvent
 "
 
 pub ext fun OverscrollEvent::from_str_bool_moverscroll_event_init(type: String, bubbles: Bool, event_init_dict: mut OverscrollEventInit) -> mut OverscrollEvent
-    = "new OverscrollEvent(#fun(String::as_js)(#var(type)), #fun(Bool::as_js)(#var(bubbles)), #fun(OverscrollEventInit::as_js)(#var(event_init_dict)));"
+    = "return new OverscrollEvent(#fun(String::as_js)(#var(type)), #fun(Bool::as_js)(#var(bubbles)), #fun(OverscrollEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun OverscrollEvent::delta_x(self: OverscrollEvent) -> Float
     = "return #fun(Float::from_js)(#var(self).deltaX);"
@@ -19975,7 +19975,7 @@ pub ext fun PageTransitionEvent::from_mevent(base: mut Event) -> mut PageTransit
 "
 
 pub ext fun PageTransitionEvent::from_str_mpage_transition_event_init(type: String, event_init_dict: mut PageTransitionEventInit) -> mut PageTransitionEvent
-    = "new PageTransitionEvent(#fun(String::as_js)(#var(type)), #fun(PageTransitionEventInit::as_js)(#var(event_init_dict)));"
+    = "return new PageTransitionEvent(#fun(String::as_js)(#var(type)), #fun(PageTransitionEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun PageTransitionEvent::persisted(self: PageTransitionEvent) -> Bool
     = "return #fun(Bool::from_js)(#var(self).persisted);"
@@ -20180,7 +20180,7 @@ pub ext fun PointerEvent::from_mevent(base: mut Event) -> mut PointerEvent = "
 "
 
 pub ext fun PointerEvent::from_str_mpointer_event_init(type: String, event_init_dict: mut PointerEventInit) -> mut PointerEvent
-    = "new PointerEvent(#fun(String::as_js)(#var(type)), #fun(PointerEventInit::as_js)(#var(event_init_dict)));"
+    = "return new PointerEvent(#fun(String::as_js)(#var(type)), #fun(PointerEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun PointerEvent::pointer_id(self: PointerEvent) -> Int
     = "return #fun(Int::from_js)(#var(self).pointerId);"
@@ -20590,7 +20590,7 @@ pub ext fun PopStateEvent::from_mevent(base: mut Event) -> mut PopStateEvent = "
 "
 
 pub ext fun PopStateEvent::from_str_mpop_state_event_init(type: String, event_init_dict: mut PopStateEventInit) -> mut PopStateEvent
-    = "new PopStateEvent(#fun(String::as_js)(#var(type)), #fun(PopStateEventInit::as_js)(#var(event_init_dict)));"
+    = "return new PopStateEvent(#fun(String::as_js)(#var(type)), #fun(PopStateEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun PopStateEvent::state(self: PopStateEvent) -> JsValue
     = "return #var(self).state;"
@@ -20753,7 +20753,7 @@ pub ext fun ProgressEvent::from_mevent(base: mut Event) -> mut ProgressEvent = "
 "
 
 pub ext fun ProgressEvent::from_str_mprogress_event_init(type: String, event_init_dict: mut ProgressEventInit) -> mut ProgressEvent
-    = "new ProgressEvent(#fun(String::as_js)(#var(type)), #fun(ProgressEventInit::as_js)(#var(event_init_dict)));"
+    = "return new ProgressEvent(#fun(String::as_js)(#var(type)), #fun(ProgressEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun ProgressEvent::length_computable(self: ProgressEvent) -> Bool
     = "return #fun(Bool::from_js)(#var(self).lengthComputable);"
@@ -20922,7 +20922,7 @@ pub ext fun PromiseRejectionEvent::from_mevent(base: mut Event) -> mut PromiseRe
 "
 
 pub ext fun PromiseRejectionEvent::from_str_mpromise_rejection_event_init(type: String, event_init_dict: mut PromiseRejectionEventInit) -> mut PromiseRejectionEvent
-    = "new PromiseRejectionEvent(#fun(String::as_js)(#var(type)), #fun(PromiseRejectionEventInit::as_js)(#var(event_init_dict)));"
+    = "return new PromiseRejectionEvent(#fun(String::as_js)(#var(type)), #fun(PromiseRejectionEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun PromiseRejectionEvent::promise(self: PromiseRejectionEvent) -> JsObject
     = "return #var(self).promise;"
@@ -21229,10 +21229,10 @@ pub ext fun SecurityPolicyViolationEvent::from_mevent(base: mut Event) -> mut Se
 "
 
 pub ext fun SecurityPolicyViolationEvent::from_str(type: String) -> mut SecurityPolicyViolationEvent
-    = "new SecurityPolicyViolationEvent(#fun(String::as_js)(#var(type)));"
+    = "return new SecurityPolicyViolationEvent(#fun(String::as_js)(#var(type)));"
 
 pub ext fun SecurityPolicyViolationEvent::from_str_msecurity_policy_violation_event_init(type: String, event_init_dict: mut SecurityPolicyViolationEventInit) -> mut SecurityPolicyViolationEvent
-    = "new SecurityPolicyViolationEvent(#fun(String::as_js)(#var(type)), #fun(SecurityPolicyViolationEventInit::as_js)(#var(event_init_dict)));"
+    = "return new SecurityPolicyViolationEvent(#fun(String::as_js)(#var(type)), #fun(SecurityPolicyViolationEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun SecurityPolicyViolationEvent::document_uri(self: SecurityPolicyViolationEvent) -> String
     = "return #fun(String::from_js)(#var(self).documentURI);"
@@ -21609,7 +21609,7 @@ pub ext fun ToggleEvent::from_mevent(base: mut Event) -> mut ToggleEvent = "
 "
 
 pub ext fun ToggleEvent::from_str_mtoggle_event_init(type: String, event_init_dict: mut ToggleEventInit) -> mut ToggleEvent
-    = "new ToggleEvent(#fun(String::as_js)(#var(type)), #fun(ToggleEventInit::as_js)(#var(event_init_dict)));"
+    = "return new ToggleEvent(#fun(String::as_js)(#var(type)), #fun(ToggleEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun ToggleEvent::old_state(self: ToggleEvent) -> String
     = "return #fun(String::from_js)(#var(self).oldState);"
@@ -21799,7 +21799,7 @@ pub ext fun TouchEvent::from_mevent(base: mut Event) -> mut TouchEvent = "
 "
 
 pub ext fun TouchEvent::from_str_mtouch_event_init(type: String, event_init_dict: mut TouchEventInit) -> mut TouchEvent
-    = "new TouchEvent(#fun(String::as_js)(#var(type)), #fun(TouchEventInit::as_js)(#var(event_init_dict)));"
+    = "return new TouchEvent(#fun(String::as_js)(#var(type)), #fun(TouchEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun TouchEvent::touches(self: TouchEvent) -> mut TouchList
     = "return #fun(TouchList::from_js)(#var(self).touches);"
@@ -22036,7 +22036,7 @@ pub ext fun TransitionEvent::from_mevent(base: mut Event) -> mut TransitionEvent
 "
 
 pub ext fun TransitionEvent::from_str_mtransition_event_init(type: String, event_init_dict: mut TransitionEventInit) -> mut TransitionEvent
-    = "new TransitionEvent(#fun(String::as_js)(#var(type)), #fun(TransitionEventInit::as_js)(#var(event_init_dict)));"
+    = "return new TransitionEvent(#fun(String::as_js)(#var(type)), #fun(TransitionEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun TransitionEvent::property_name(self: TransitionEvent) -> String
     = "return #fun(String::from_js)(#var(self).propertyName);"
@@ -22205,7 +22205,7 @@ pub ext fun UIEvent::from_mevent(base: mut Event) -> mut UIEvent = "
 "
 
 pub ext fun UIEvent::from_str_mui_event_init(type: String, event_init_dict: mut UIEventInit) -> mut UIEvent
-    = "new UIEvent(#fun(String::as_js)(#var(type)), #fun(UIEventInit::as_js)(#var(event_init_dict)));"
+    = "return new UIEvent(#fun(String::as_js)(#var(type)), #fun(UIEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun UIEvent::view(self: UIEvent) -> Option[mut Window]
     = "return #fun(Option::from_js[mut Window])(#var(self).view);"
@@ -22430,7 +22430,7 @@ pub ext fun WheelEvent::from_mevent(base: mut Event) -> mut WheelEvent = "
 "
 
 pub ext fun WheelEvent::from_str_mwheel_event_init(type: String, event_init_dict: mut WheelEventInit) -> mut WheelEvent
-    = "new WheelEvent(#fun(String::as_js)(#var(type)), #fun(WheelEventInit::as_js)(#var(event_init_dict)));"
+    = "return new WheelEvent(#fun(String::as_js)(#var(type)), #fun(WheelEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun WheelEvent::delta_x(self: WheelEvent) -> Float
     = "return #fun(Float::from_js)(#var(self).deltaX);"
@@ -23663,7 +23663,7 @@ pub fun Window::from_js(v: JsValue) -> mut Window = JsValue::unsafe_as[mut Windo
 struct Headers()
 
 pub ext fun Headers::from_any(init: JsValue) -> mut Headers
-    = "new Headers(#var(init));"
+    = "return new Headers(#var(init));"
 
 pub ext fun Headers::append(__self: mut Headers, name: String, value: String) -> Unit = "
     const r = #var(__self).append(#fun(String::as_js)(#var(name)), #fun(String::as_js)(#var(value)));
@@ -23812,7 +23812,7 @@ pub val ReferrerPolicy::UnsafeUrl: String = "unsafe-url"
 struct Request()
 
 pub ext fun Request::from_any_mrequest_init(input: JsValue, init: mut RequestInit) -> mut Request
-    = "new Request(#var(input), #fun(RequestInit::as_js)(#var(init)));"
+    = "return new Request(#var(input), #fun(RequestInit::as_js)(#var(init)));"
 
 pub ext fun Request::method(self: Request) -> String
     = "return #fun(String::from_js)(#var(self).method);"
@@ -23996,7 +23996,7 @@ pub val ResponseType::Opaqueredirect: String = "opaqueredirect"
 struct Response()
 
 pub ext fun Response::from_any_mresponse_init(body: JsValue, init: mut ResponseInit) -> mut Response
-    = "new Response(#var(body), #fun(ResponseInit::as_js)(#var(init)));"
+    = "return new Response(#var(body), #fun(ResponseInit::as_js)(#var(init)));"
 
 pub ext fun Response::type(self: Response) -> String
     = "return #fun(String::from_js)(#var(self).type);"
@@ -24210,7 +24210,7 @@ pub fun WorkerGlobalScope::from_js(v: JsValue) -> mut WorkerGlobalScope = JsValu
 struct Blob()
 
 pub ext fun Blob::from_list_any_mblob_property_bag(blob_parts: List[JsValue], options: mut BlobPropertyBag) -> mut Blob
-    = "new Blob(#fun(List::as_js[JsValue])(#var(blob_parts)), #fun(BlobPropertyBag::as_js)(#var(options)));"
+    = "return new Blob(#fun(List::as_js[JsValue])(#var(blob_parts)), #fun(BlobPropertyBag::as_js)(#var(options)));"
 
 pub ext fun Blob::size(self: Blob) -> Int
     = "return #fun(Int::from_js)(#var(self).size);"
@@ -24294,7 +24294,7 @@ pub ext fun File::from_mblob(base: mut Blob) -> mut File = "
 "
 
 pub ext fun File::from_list_any_str_mfile_property_bag(file_bits: List[JsValue], file_name: String, options: mut FilePropertyBag) -> mut File
-    = "new File(#fun(List::as_js[JsValue])(#var(file_bits)), #fun(String::as_js)(#var(file_name)), #fun(FilePropertyBag::as_js)(#var(options)));"
+    = "return new File(#fun(List::as_js[JsValue])(#var(file_bits)), #fun(String::as_js)(#var(file_name)), #fun(FilePropertyBag::as_js)(#var(options)));"
 
 pub ext fun File::name(self: File) -> String
     = "return #fun(String::from_js)(#var(self).name);"
@@ -24422,7 +24422,7 @@ pub ext fun FileReader::from_mevent_target(base: mut EventTarget) -> mut FileRea
 "
 
 pub ext fun FileReader::new() -> mut FileReader
-    = "new FileReader();"
+    = "return new FileReader();"
 
 pub ext fun FileReader::ready_state(self: FileReader) -> Int
     = "return #fun(Int::from_js)(#var(self).readyState);"
@@ -24525,7 +24525,7 @@ pub val FileReader::done: Int = 2
 struct FileReaderSync()
 
 pub ext fun FileReaderSync::new() -> mut FileReaderSync
-    = "new FileReaderSync();"
+    = "return new FileReaderSync();"
 
 pub ext fun FileReaderSync::read_as_array_buffer(__self: mut FileReaderSync, blob: mut Blob) -> JsValue = "
     const r = #var(__self).readAsArrayBuffer(#fun(Blob::as_js)(#var(blob)));
@@ -24632,7 +24632,7 @@ pub ext fun TextDirective::from_mdirective(base: mut Directive) -> mut TextDirec
 "
 
 pub ext fun TextDirective::from_mtext_directive_options(options: mut TextDirectiveOptions) -> mut TextDirective
-    = "new TextDirective(#fun(TextDirectiveOptions::as_js)(#var(options)));"
+    = "return new TextDirective(#fun(TextDirectiveOptions::as_js)(#var(options)));"
 
 pub ext fun TextDirective::prefix(self: TextDirective) -> String
     = "return #fun(String::from_js)(#var(self).prefix);"
@@ -25348,7 +25348,7 @@ pub fun ReportBody::from_js(v: JsValue) -> mut ReportBody = JsValue::unsafe_as[m
 struct ReportingObserver()
 
 pub ext fun ReportingObserver::from_f_list_mreport_mreporting_observer_unit_mreporting_observer_options(callback: Fun(List[mut Report], mut ReportingObserver) -> Unit, options: mut ReportingObserverOptions) -> mut ReportingObserver
-    = "new ReportingObserver(((p0, p1) => { const r = #var(callback)(#fun(List::from_js[mut Report])(p0), #fun(ReportingObserver::from_js)(p1)); return #fun(Unit::as_js)(r); }), #fun(ReportingObserverOptions::as_js)(#var(options)));"
+    = "return new ReportingObserver(((p0, p1) => { const r = #var(callback)(#fun(List::from_js[mut Report])(p0), #fun(ReportingObserver::from_js)(p1)); return #fun(Unit::as_js)(r); }), #fun(ReportingObserverOptions::as_js)(#var(options)));"
 
 pub ext fun ReportingObserver::observe(__self: mut ReportingObserver) -> Unit = "
     const r = #var(__self).observe();
@@ -26535,7 +26535,7 @@ pub ext fun DOMMatrix::from_mdom_matrix_read_only(base: mut DOMMatrixReadOnly) -
 "
 
 pub ext fun DOMMatrix::from_any(init: JsValue) -> mut DOMMatrix
-    = "new DOMMatrix(#var(init));"
+    = "return new DOMMatrix(#var(init));"
 
 pub ext fun DOMMatrix::a(self: DOMMatrix) -> Float
     = "return #fun(Float::from_js)(#var(self).a);"
@@ -27002,7 +27002,7 @@ pub ext fun DOMMatrixInit::as_js(self: DOMMatrixInit) -> JsValue = "
 struct DOMMatrixReadOnly()
 
 pub ext fun DOMMatrixReadOnly::from_any(init: JsValue) -> mut DOMMatrixReadOnly
-    = "new DOMMatrixReadOnly(#var(init));"
+    = "return new DOMMatrixReadOnly(#var(init));"
 
 pub ext fun DOMMatrixReadOnly::a(self: DOMMatrixReadOnly) -> Float
     = "return #fun(Float::from_js)(#var(self).a);"
@@ -27212,7 +27212,7 @@ pub ext fun DOMPoint::from_mdom_point_read_only(base: mut DOMPointReadOnly) -> m
 "
 
 pub ext fun DOMPoint::from_flt_flt_flt_flt(x: Float, y: Float, z: Float, w: Float) -> mut DOMPoint
-    = "new DOMPoint(#fun(Float::as_js)(#var(x)), #fun(Float::as_js)(#var(y)), #fun(Float::as_js)(#var(z)), #fun(Float::as_js)(#var(w)));"
+    = "return new DOMPoint(#fun(Float::as_js)(#var(x)), #fun(Float::as_js)(#var(y)), #fun(Float::as_js)(#var(z)), #fun(Float::as_js)(#var(w)));"
 
 pub ext fun DOMPoint::x(self: DOMPoint) -> Float
     = "return #fun(Float::from_js)(#var(self).x);"
@@ -27288,7 +27288,7 @@ pub ext fun DOMPointInit::as_js(self: DOMPointInit) -> JsValue = "
 struct DOMPointReadOnly()
 
 pub ext fun DOMPointReadOnly::from_flt_flt_flt_flt(x: Float, y: Float, z: Float, w: Float) -> mut DOMPointReadOnly
-    = "new DOMPointReadOnly(#fun(Float::as_js)(#var(x)), #fun(Float::as_js)(#var(y)), #fun(Float::as_js)(#var(z)), #fun(Float::as_js)(#var(w)));"
+    = "return new DOMPointReadOnly(#fun(Float::as_js)(#var(x)), #fun(Float::as_js)(#var(y)), #fun(Float::as_js)(#var(z)), #fun(Float::as_js)(#var(w)));"
 
 pub ext fun DOMPointReadOnly::x(self: DOMPointReadOnly) -> Float
     = "return #fun(Float::from_js)(#var(self).x);"
@@ -27324,7 +27324,7 @@ pub fun DOMPointReadOnly::from_js(v: JsValue) -> mut DOMPointReadOnly = JsValue:
 struct DOMQuad()
 
 pub ext fun DOMQuad::from_mdom_point_init_mdom_point_init_mdom_point_init_mdom_point_init(p_1: mut DOMPointInit, p_2: mut DOMPointInit, p_3: mut DOMPointInit, p_4: mut DOMPointInit) -> mut DOMQuad
-    = "new DOMQuad(#fun(DOMPointInit::as_js)(#var(p_1)), #fun(DOMPointInit::as_js)(#var(p_2)), #fun(DOMPointInit::as_js)(#var(p_3)), #fun(DOMPointInit::as_js)(#var(p_4)));"
+    = "return new DOMQuad(#fun(DOMPointInit::as_js)(#var(p_1)), #fun(DOMPointInit::as_js)(#var(p_2)), #fun(DOMPointInit::as_js)(#var(p_3)), #fun(DOMPointInit::as_js)(#var(p_4)));"
 
 pub ext fun DOMQuad::p_1(self: DOMQuad) -> mut DOMPoint
     = "return #fun(DOMPoint::from_js)(#var(self).p1);"
@@ -27417,7 +27417,7 @@ pub ext fun DOMRect::from_mdom_rect_read_only(base: mut DOMRectReadOnly) -> mut 
 "
 
 pub ext fun DOMRect::from_flt_flt_flt_flt(x: Float, y: Float, width: Float, height: Float) -> mut DOMRect
-    = "new DOMRect(#fun(Float::as_js)(#var(x)), #fun(Float::as_js)(#var(y)), #fun(Float::as_js)(#var(width)), #fun(Float::as_js)(#var(height)));"
+    = "return new DOMRect(#fun(Float::as_js)(#var(x)), #fun(Float::as_js)(#var(y)), #fun(Float::as_js)(#var(width)), #fun(Float::as_js)(#var(height)));"
 
 pub ext fun DOMRect::x(self: DOMRect) -> Float
     = "return #fun(Float::from_js)(#var(self).x);"
@@ -27514,7 +27514,7 @@ pub fun DOMRectList::from_js(v: JsValue) -> mut DOMRectList = JsValue::unsafe_as
 struct DOMRectReadOnly()
 
 pub ext fun DOMRectReadOnly::from_flt_flt_flt_flt(x: Float, y: Float, width: Float, height: Float) -> mut DOMRectReadOnly
-    = "new DOMRectReadOnly(#fun(Float::as_js)(#var(x)), #fun(Float::as_js)(#var(y)), #fun(Float::as_js)(#var(width)), #fun(Float::as_js)(#var(height)));"
+    = "return new DOMRectReadOnly(#fun(Float::as_js)(#var(x)), #fun(Float::as_js)(#var(y)), #fun(Float::as_js)(#var(width)), #fun(Float::as_js)(#var(height)));"
 
 pub ext fun DOMRectReadOnly::x(self: DOMRectReadOnly) -> Float
     = "return #fun(Float::from_js)(#var(self).x);"
@@ -27563,7 +27563,7 @@ pub val HighlightType::GrammarError: String = "grammar-error"
 struct Highlight()
 
 pub ext fun Highlight::from_mabstract_range(...init_ranges: List[mut AbstractRange]) -> mut Highlight
-    = "new Highlight((#var(init_ranges)).map(v => #fun(AbstractRange::as_js)(v)));"
+    = "return new Highlight((#var(init_ranges)).map(v => #fun(AbstractRange::as_js)(v)));"
 
 pub ext fun Highlight::priority(self: Highlight) -> Int
     = "return #fun(Int::from_js)(#var(self).priority);"
@@ -28566,13 +28566,13 @@ pub fun HTMLCanvasElement::from_js(v: JsValue) -> mut HTMLCanvasElement = JsValu
 struct ImageData()
 
 pub ext fun ImageData::from_int_int(sw: Int, sh: Int) -> mut ImageData
-    = "new ImageData(#fun(Int::as_js)(#var(sw)), #fun(Int::as_js)(#var(sh)));"
+    = "return new ImageData(#fun(Int::as_js)(#var(sw)), #fun(Int::as_js)(#var(sh)));"
 
 pub ext fun ImageData::from_int_int_mimage_data_settings(sw: Int, sh: Int, settings: mut ImageDataSettings) -> mut ImageData
-    = "new ImageData(#fun(Int::as_js)(#var(sw)), #fun(Int::as_js)(#var(sh)), #fun(ImageDataSettings::as_js)(#var(settings)));"
+    = "return new ImageData(#fun(Int::as_js)(#var(sw)), #fun(Int::as_js)(#var(sh)), #fun(ImageDataSettings::as_js)(#var(settings)));"
 
 pub ext fun ImageData::from_any_int_int_mimage_data_settings(data: JsValue, sw: Int, sh: Int, settings: mut ImageDataSettings) -> mut ImageData
-    = "new ImageData(#var(data), #fun(Int::as_js)(#var(sw)), #fun(Int::as_js)(#var(sh)), #fun(ImageDataSettings::as_js)(#var(settings)));"
+    = "return new ImageData(#var(data), #fun(Int::as_js)(#var(sw)), #fun(Int::as_js)(#var(sh)), #fun(ImageDataSettings::as_js)(#var(settings)));"
 
 pub ext fun ImageData::width(self: ImageData) -> Int
     = "return #fun(Int::from_js)(#var(self).width);"
@@ -28807,7 +28807,7 @@ pub ext fun CloseWatcher::from_mevent_target(base: mut EventTarget) -> mut Close
 "
 
 pub ext fun CloseWatcher::from_mclose_watcher_options(options: mut CloseWatcherOptions) -> mut CloseWatcher
-    = "new CloseWatcher(#fun(CloseWatcherOptions::as_js)(#var(options)));"
+    = "return new CloseWatcher(#fun(CloseWatcherOptions::as_js)(#var(options)));"
 
 pub ext fun CloseWatcher::oncancel(self: CloseWatcher) -> Option[Fun(JsValue) -> JsValue]
     = "return #fun(Option::from_js[Fun(JsValue) -> JsValue])(#var(self).oncancel);"
@@ -28882,7 +28882,7 @@ pub ext fun CloseWatcherOptions::as_js(self: CloseWatcherOptions) -> JsValue = "
 struct CustomElementRegistry()
 
 pub ext fun CustomElementRegistry::new() -> mut CustomElementRegistry
-    = "new CustomElementRegistry();"
+    = "return new CustomElementRegistry();"
 
 pub ext fun CustomElementRegistry::define(__self: mut CustomElementRegistry, name: String, constructor: Fun() -> JsValue, options: mut ElementDefinitionOptions) -> Unit = "
     const r = #var(__self).define(#fun(String::as_js)(#var(name)), (() => { const r = #var(constructor)(); return r; }), #fun(ElementDefinitionOptions::as_js)(#var(options)));
@@ -29419,7 +29419,7 @@ pub val OpaqueProperty::Opaque: String = "opaque"
 struct FencedFrameConfig()
 
 pub ext fun FencedFrameConfig::from_str(url: String) -> mut FencedFrameConfig
-    = "new FencedFrameConfig(#fun(String::as_js)(#var(url)));"
+    = "return new FencedFrameConfig(#fun(String::as_js)(#var(url)));"
 
 pub ext fun FencedFrameConfig::set_shared_storage_context(__self: mut FencedFrameConfig, context_string: String) -> Unit = "
     const r = #var(__self).setSharedStorageContext(#fun(String::as_js)(#var(context_string)));
@@ -29713,7 +29713,7 @@ pub ext fun FocusOptions::as_js(self: FocusOptions) -> JsValue = "
 struct FormData()
 
 pub ext fun FormData::from_mhtml_form_element_omhtml_element(form: mut HTMLFormElement, submitter: Option[mut HTMLElement]) -> mut FormData
-    = "new FormData(#fun(HTMLFormElement::as_js)(#var(form)), #fun(Option::as_js[mut HTMLElement])(#var(submitter)));"
+    = "return new FormData(#fun(HTMLFormElement::as_js)(#var(form)), #fun(Option::as_js[mut HTMLElement])(#var(submitter)));"
 
 pub ext fun FormData::append_str_str(__self: mut FormData, name: String, value: String) -> Unit = "
     const r = #var(__self).append(#fun(String::as_js)(#var(name)), #fun(String::as_js)(#var(value)));
@@ -29786,7 +29786,7 @@ pub ext fun FormDataEvent::from_mevent(base: mut Event) -> mut FormDataEvent = "
 "
 
 pub ext fun FormDataEvent::from_str_mform_data_event_init(type: String, event_init_dict: mut FormDataEventInit) -> mut FormDataEvent
-    = "new FormDataEvent(#fun(String::as_js)(#var(type)), #fun(FormDataEventInit::as_js)(#var(event_init_dict)));"
+    = "return new FormDataEvent(#fun(String::as_js)(#var(type)), #fun(FormDataEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun FormDataEvent::form_data(self: FormDataEvent) -> mut FormData
     = "return #fun(FormData::from_js)(#var(self).formData);"
@@ -32483,7 +32483,7 @@ pub ext fun HTMLOptionElement::from_melement(base: mut Element) -> mut HTMLOptio
 "
 
 pub ext fun HTMLOptionElement::new() -> mut HTMLOptionElement
-    = "new HTMLOptionElement();"
+    = "return new HTMLOptionElement();"
 
 pub ext fun HTMLOptionElement::disabled(self: HTMLOptionElement) -> Bool
     = "return #fun(Bool::from_js)(#var(self).disabled);"
@@ -34119,7 +34119,7 @@ pub ext fun SubmitEvent::from_mevent(base: mut Event) -> mut SubmitEvent = "
 "
 
 pub ext fun SubmitEvent::from_str_msubmit_event_init(type: String, event_init_dict: mut SubmitEventInit) -> mut SubmitEvent
-    = "new SubmitEvent(#fun(String::as_js)(#var(type)), #fun(SubmitEventInit::as_js)(#var(event_init_dict)));"
+    = "return new SubmitEvent(#fun(String::as_js)(#var(type)), #fun(SubmitEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun SubmitEvent::submitter(self: SubmitEvent) -> Option[mut HTMLElement]
     = "return #fun(Option::from_js[mut HTMLElement])(#var(self).submitter);"
@@ -40938,7 +40938,7 @@ pub ext fun HTMLImageElement::from_melement(base: mut Element) -> mut HTMLImageE
 "
 
 pub ext fun HTMLImageElement::new() -> mut HTMLImageElement
-    = "new HTMLImageElement();"
+    = "return new HTMLImageElement();"
 
 pub ext fun HTMLImageElement::alt(self: HTMLImageElement) -> String
     = "return #fun(String::from_js)(#var(self).alt);"
@@ -45283,7 +45283,7 @@ pub ext fun HTMLPermissionElement::from_melement(base: mut Element) -> mut HTMLP
 "
 
 pub ext fun HTMLPermissionElement::new() -> mut HTMLPermissionElement
-    = "new HTMLPermissionElement();"
+    = "return new HTMLPermissionElement();"
 
 pub ext fun HTMLPermissionElement::type(self: HTMLPermissionElement) -> String
     = "return #fun(String::from_js)(#var(self).type);"
@@ -50788,7 +50788,7 @@ pub ext fun HTMLAudioElement::from_melement(base: mut Element) -> mut HTMLAudioE
 "
 
 pub ext fun HTMLAudioElement::new() -> mut HTMLAudioElement
-    = "new HTMLAudioElement();"
+    = "return new HTMLAudioElement();"
 
 pub ext fun HTMLAudioElement::error(self: HTMLAudioElement) -> Option[mut MediaError]
     = "return #fun(Option::from_js[mut MediaError])(#var(self).error);"
@@ -52786,7 +52786,7 @@ pub ext fun TrackEvent::from_mevent(base: mut Event) -> mut TrackEvent = "
 "
 
 pub ext fun TrackEvent::from_str_mtrack_event_init(type: String, event_init_dict: mut TrackEventInit) -> mut TrackEvent
-    = "new TrackEvent(#fun(String::as_js)(#var(type)), #fun(TrackEventInit::as_js)(#var(event_init_dict)));"
+    = "return new TrackEvent(#fun(String::as_js)(#var(type)), #fun(TrackEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun TrackEvent::track(self: TrackEvent) -> Option[JsValue]
     = "return #fun(Option::from_js[JsValue])(#var(self).track);"
@@ -53086,7 +53086,7 @@ pub ext fun VTTCue::from_mevent_target(base: mut EventTarget) -> mut VTTCue = "
 "
 
 pub ext fun VTTCue::from_flt_flt_str(start_time: Float, end_time: Float, text: String) -> mut VTTCue
-    = "new VTTCue(#fun(Float::as_js)(#var(start_time)), #fun(Float::as_js)(#var(end_time)), #fun(String::as_js)(#var(text)));"
+    = "return new VTTCue(#fun(Float::as_js)(#var(start_time)), #fun(Float::as_js)(#var(end_time)), #fun(String::as_js)(#var(text)));"
 
 pub ext fun VTTCue::region(self: VTTCue) -> Option[mut VTTRegion]
     = "return #fun(Option::from_js[mut VTTRegion])(#var(self).region);"
@@ -53209,7 +53209,7 @@ pub val ScrollSetting::Up: String = "up"
 struct VTTRegion()
 
 pub ext fun VTTRegion::new() -> mut VTTRegion
-    = "new VTTRegion();"
+    = "return new VTTRegion();"
 
 pub ext fun VTTRegion::id(self: VTTRegion) -> String
     = "return #fun(String::from_js)(#var(self).id);"
@@ -53333,7 +53333,7 @@ pub ext fun ImageBitmapOptions::as_js(self: ImageBitmapOptions) -> JsValue = "
 struct InputDeviceCapabilities()
 
 pub ext fun InputDeviceCapabilities::from_minput_device_capabilities_init(device_init_dict: mut InputDeviceCapabilitiesInit) -> mut InputDeviceCapabilities
-    = "new InputDeviceCapabilities(#fun(InputDeviceCapabilitiesInit::as_js)(#var(device_init_dict)));"
+    = "return new InputDeviceCapabilities(#fun(InputDeviceCapabilitiesInit::as_js)(#var(device_init_dict)));"
 
 pub ext fun InputDeviceCapabilities::fires_touch_events(self: InputDeviceCapabilities) -> Bool
     = "return #fun(Bool::from_js)(#var(self).firesTouchEvents);"
@@ -53364,7 +53364,7 @@ pub ext fun InputDeviceCapabilitiesInit::as_js(self: InputDeviceCapabilitiesInit
 struct Touch()
 
 pub ext fun Touch::from_mtouch_init(init_dict: mut TouchInit) -> mut Touch
-    = "new Touch(#fun(TouchInit::as_js)(#var(init_dict)));"
+    = "return new Touch(#fun(TouchInit::as_js)(#var(init_dict)));"
 
 pub ext fun Touch::identifier(self: Touch) -> Int
     = "return #fun(Int::from_js)(#var(self).identifier);"
@@ -53587,7 +53587,7 @@ pub fun InspectorOverlayHost::from_js(v: JsValue) -> mut InspectorOverlayHost = 
 struct IntersectionObserver()
 
 pub ext fun IntersectionObserver::from_f_list_mintersection_observer_entry_mintersection_observer_unit_mintersection_observer_init(callback: Fun(List[mut IntersectionObserverEntry], mut IntersectionObserver) -> Unit, options: mut IntersectionObserverInit) -> mut IntersectionObserver
-    = "new IntersectionObserver(((p0, p1) => { const r = #var(callback)(#fun(List::from_js[mut IntersectionObserverEntry])(p0), #fun(IntersectionObserver::from_js)(p1)); return #fun(Unit::as_js)(r); }), #fun(IntersectionObserverInit::as_js)(#var(options)));"
+    = "return new IntersectionObserver(((p0, p1) => { const r = #var(callback)(#fun(List::from_js[mut IntersectionObserverEntry])(p0), #fun(IntersectionObserver::from_js)(p1)); return #fun(Unit::as_js)(r); }), #fun(IntersectionObserverInit::as_js)(#var(options)));"
 
 pub ext fun IntersectionObserver::root(self: IntersectionObserver) -> Option[mut Node]
     = "return #fun(Option::from_js[mut Node])(#var(self).root);"
@@ -54646,7 +54646,7 @@ pub fun MathMLElement::from_js(v: JsValue) -> mut MathMLElement = JsValue::unsaf
 struct MessageChannel()
 
 pub ext fun MessageChannel::new() -> mut MessageChannel
-    = "new MessageChannel();"
+    = "return new MessageChannel();"
 
 pub ext fun MessageChannel::port_1(self: MessageChannel) -> mut MessagePort
     = "return #fun(MessagePort::from_js)(#var(self).port1);"
@@ -55259,7 +55259,7 @@ pub ext fun MojoInterfaceInterceptor::from_mevent_target(base: mut EventTarget) 
 "
 
 pub ext fun MojoInterfaceInterceptor::from_str_str(interface_name: String, scope: String) -> mut MojoInterfaceInterceptor
-    = "new MojoInterfaceInterceptor(#fun(String::as_js)(#var(interface_name)), #var(scope));"
+    = "return new MojoInterfaceInterceptor(#fun(String::as_js)(#var(interface_name)), #var(scope));"
 
 pub ext fun MojoInterfaceInterceptor::oninterfacerequest(self: MojoInterfaceInterceptor) -> Option[Fun(JsValue) -> JsValue]
     = "return #fun(Option::from_js[Fun(JsValue) -> JsValue])(#var(self).oninterfacerequest);"
@@ -55328,7 +55328,7 @@ pub ext fun MojoInterfaceRequestEvent::from_mevent(base: mut Event) -> mut MojoI
 "
 
 pub ext fun MojoInterfaceRequestEvent::from_str_mmojo_interface_request_event_init(type: String, event_init_dict: mut MojoInterfaceRequestEventInit) -> mut MojoInterfaceRequestEvent
-    = "new MojoInterfaceRequestEvent(#fun(String::as_js)(#var(type)), #fun(MojoInterfaceRequestEventInit::as_js)(#var(event_init_dict)));"
+    = "return new MojoInterfaceRequestEvent(#fun(String::as_js)(#var(type)), #fun(MojoInterfaceRequestEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun MojoInterfaceRequestEvent::handle(self: MojoInterfaceRequestEvent) -> mut MojoHandle
     = "return #fun(MojoHandle::from_js)(#var(self).handle);"
@@ -55485,7 +55485,7 @@ pub ext fun NavigateEvent::from_mevent(base: mut Event) -> mut NavigateEvent = "
 "
 
 pub ext fun NavigateEvent::from_str_mnavigate_event_init(type: String, event_init: mut NavigateEventInit) -> mut NavigateEvent
-    = "new NavigateEvent(#fun(String::as_js)(#var(type)), #fun(NavigateEventInit::as_js)(#var(event_init)));"
+    = "return new NavigateEvent(#fun(String::as_js)(#var(type)), #fun(NavigateEventInit::as_js)(#var(event_init)));"
 
 pub ext fun NavigateEvent::navigation_type(self: NavigateEvent) -> String
     = "return #fun(String::from_js)(#var(self).navigationType);"
@@ -55859,7 +55859,7 @@ pub ext fun NavigationCurrentEntryChangeEvent::from_mevent(base: mut Event) -> m
 "
 
 pub ext fun NavigationCurrentEntryChangeEvent::from_str_mnavigation_current_entry_change_event_init(type: String, event_init: mut NavigationCurrentEntryChangeEventInit) -> mut NavigationCurrentEntryChangeEvent
-    = "new NavigationCurrentEntryChangeEvent(#fun(String::as_js)(#var(type)), #fun(NavigationCurrentEntryChangeEventInit::as_js)(#var(event_init)));"
+    = "return new NavigationCurrentEntryChangeEvent(#fun(String::as_js)(#var(type)), #fun(NavigationCurrentEntryChangeEventInit::as_js)(#var(event_init)));"
 
 pub ext fun NavigationCurrentEntryChangeEvent::navigation_type(self: NavigationCurrentEntryChangeEvent) -> Option[String]
     = "return #fun(Option::from_js[String])(#var(self).navigationType);"
@@ -56334,7 +56334,7 @@ pub ext fun OffscreenCanvas::from_mevent_target(base: mut EventTarget) -> mut Of
 "
 
 pub ext fun OffscreenCanvas::from_int_int(width: Int, height: Int) -> mut OffscreenCanvas
-    = "new OffscreenCanvas(#fun(Int::as_js)(#var(width)), #fun(Int::as_js)(#var(height)));"
+    = "return new OffscreenCanvas(#fun(Int::as_js)(#var(width)), #fun(Int::as_js)(#var(height)));"
 
 pub ext fun OffscreenCanvas::width(self: OffscreenCanvas) -> Int
     = "return #fun(Int::from_js)(#var(self).width);"
@@ -56653,7 +56653,7 @@ pub fun PreferenceObject::from_js(v: JsValue) -> mut PreferenceObject = JsValue:
 struct ResizeObserver()
 
 pub ext fun ResizeObserver::from_f_list_mresize_observer_entry_mresize_observer_unit(callback: Fun(List[mut ResizeObserverEntry], mut ResizeObserver) -> Unit) -> mut ResizeObserver
-    = "new ResizeObserver(((p0, p1) => { const r = #var(callback)(#fun(List::from_js[mut ResizeObserverEntry])(p0), #fun(ResizeObserver::from_js)(p1)); return #fun(Unit::as_js)(r); }));"
+    = "return new ResizeObserver(((p0, p1) => { const r = #var(callback)(#fun(List::from_js[mut ResizeObserverEntry])(p0), #fun(ResizeObserver::from_js)(p1)); return #fun(Unit::as_js)(r); }));"
 
 pub ext fun ResizeObserver::observe_melement_mresize_observer_options(__self: mut ResizeObserver, target: mut Element, options: mut ResizeObserverOptions) -> Unit = "
     const r = #var(__self).observe(#fun(Element::as_js)(#var(target)), #fun(ResizeObserverOptions::as_js)(#var(options)));
@@ -56741,7 +56741,7 @@ pub fun ResizeObserverSize::from_js(v: JsValue) -> mut ResizeObserverSize = JsVa
 struct Sanitizer()
 
 pub ext fun Sanitizer::from_any(configuration: JsValue) -> mut Sanitizer
-    = "new Sanitizer(#var(configuration));"
+    = "return new Sanitizer(#var(configuration));"
 
 pub ext fun Sanitizer::get(__self: mut Sanitizer) -> mut SanitizerConfig = "
     const r = #var(__self).get();
@@ -57040,7 +57040,7 @@ pub ext fun TaskController::from_mabort_controller(base: mut AbortController) ->
 "
 
 pub ext fun TaskController::from_mtask_controller_init(init: mut TaskControllerInit) -> mut TaskController
-    = "new TaskController(#fun(TaskControllerInit::as_js)(#var(init)));"
+    = "return new TaskController(#fun(TaskControllerInit::as_js)(#var(init)));"
 
 pub ext fun TaskController::signal(self: TaskController) -> mut AbortSignal
     = "return #fun(AbortSignal::from_js)(#var(self).signal);"
@@ -57105,7 +57105,7 @@ pub ext fun TaskPriorityChangeEvent::from_mevent(base: mut Event) -> mut TaskPri
 "
 
 pub ext fun TaskPriorityChangeEvent::from_str_mtask_priority_change_event_init(type: String, event_init_dict: mut TaskPriorityChangeEventInit) -> mut TaskPriorityChangeEvent
-    = "new TaskPriorityChangeEvent(#fun(String::as_js)(#var(type)), #fun(TaskPriorityChangeEventInit::as_js)(#var(event_init_dict)));"
+    = "return new TaskPriorityChangeEvent(#fun(String::as_js)(#var(type)), #fun(TaskPriorityChangeEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun TaskPriorityChangeEvent::previous_priority(self: TaskPriorityChangeEvent) -> String
     = "return #fun(String::from_js)(#var(self).previousPriority);"
@@ -57411,7 +57411,7 @@ pub ext fun SnapEvent::from_mevent(base: mut Event) -> mut SnapEvent = "
 "
 
 pub ext fun SnapEvent::from_str_msnap_event_init(type: String, event_init_dict: mut SnapEventInit) -> mut SnapEvent
-    = "new SnapEvent(#fun(String::as_js)(#var(type)), #fun(SnapEventInit::as_js)(#var(event_init_dict)));"
+    = "return new SnapEvent(#fun(String::as_js)(#var(type)), #fun(SnapEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun SnapEvent::snap_target_block(self: SnapEvent) -> mut Node
     = "return #fun(Node::from_js)(#var(self).snapTargetBlock);"
@@ -57584,7 +57584,7 @@ pub fun ShadowRealmGlobalScope::from_js(v: JsValue) -> mut ShadowRealmGlobalScop
 struct ByteLengthQueuingStrategy()
 
 pub ext fun ByteLengthQueuingStrategy::from_mqueuing_strategy_init(init: mut QueuingStrategyInit) -> mut ByteLengthQueuingStrategy
-    = "new ByteLengthQueuingStrategy(#fun(QueuingStrategyInit::as_js)(#var(init)));"
+    = "return new ByteLengthQueuingStrategy(#fun(QueuingStrategyInit::as_js)(#var(init)));"
 
 pub ext fun ByteLengthQueuingStrategy::high_water_mark(self: ByteLengthQueuingStrategy) -> Float
     = "return #fun(Float::from_js)(#var(self).highWaterMark);"
@@ -57599,7 +57599,7 @@ pub fun ByteLengthQueuingStrategy::from_js(v: JsValue) -> mut ByteLengthQueuingS
 struct CountQueuingStrategy()
 
 pub ext fun CountQueuingStrategy::from_mqueuing_strategy_init(init: mut QueuingStrategyInit) -> mut CountQueuingStrategy
-    = "new CountQueuingStrategy(#fun(QueuingStrategyInit::as_js)(#var(init)));"
+    = "return new CountQueuingStrategy(#fun(QueuingStrategyInit::as_js)(#var(init)));"
 
 pub ext fun CountQueuingStrategy::high_water_mark(self: CountQueuingStrategy) -> Float
     = "return #fun(Float::from_js)(#var(self).highWaterMark);"
@@ -57664,7 +57664,7 @@ pub val ReadableStreamType::Bytes: String = "bytes"
 struct ReadableStream()
 
 pub ext fun ReadableStream::from_any_any(underlying_source: JsValue, strategy: JsValue) -> mut ReadableStream
-    = "new ReadableStream(#var(underlying_source), #var(strategy));"
+    = "return new ReadableStream(#var(underlying_source), #var(strategy));"
 
 pub ext fun ReadableStream::locked(self: ReadableStream) -> Bool
     = "return #fun(Bool::from_js)(#var(self).locked);"
@@ -57701,7 +57701,7 @@ pub fun ReadableStream::from_js(v: JsValue) -> mut ReadableStream = JsValue::uns
 struct ReadableStreamBYOBReader()
 
 pub ext fun ReadableStreamBYOBReader::from_mreadable_stream(stream: mut ReadableStream) -> mut ReadableStreamBYOBReader
-    = "new ReadableStreamBYOBReader(#fun(ReadableStream::as_js)(#var(stream)));"
+    = "return new ReadableStreamBYOBReader(#fun(ReadableStream::as_js)(#var(stream)));"
 
 pub ext fun ReadableStreamBYOBReader::closed(self: ReadableStreamBYOBReader) -> Promise[Unit]
     = "return #fun(Promise::from_js[Unit])(#var(self).closed);"
@@ -57790,7 +57790,7 @@ pub fun ReadableStreamDefaultController::from_js(v: JsValue) -> mut ReadableStre
 struct ReadableStreamDefaultReader()
 
 pub ext fun ReadableStreamDefaultReader::from_mreadable_stream(stream: mut ReadableStream) -> mut ReadableStreamDefaultReader
-    = "new ReadableStreamDefaultReader(#fun(ReadableStream::as_js)(#var(stream)));"
+    = "return new ReadableStreamDefaultReader(#fun(ReadableStream::as_js)(#var(stream)));"
 
 pub ext fun ReadableStreamDefaultReader::closed(self: ReadableStreamDefaultReader) -> Promise[Unit]
     = "return #fun(Promise::from_js[Unit])(#var(self).closed);"
@@ -57927,7 +57927,7 @@ pub ext fun StreamPipeOptions::as_js(self: StreamPipeOptions) -> JsValue = "
 struct TransformStream()
 
 pub ext fun TransformStream::from_any_any_any(transformer: JsValue, writable_strategy: JsValue, readable_strategy: JsValue) -> mut TransformStream
-    = "new TransformStream(#var(transformer), #var(writable_strategy), #var(readable_strategy));"
+    = "return new TransformStream(#var(transformer), #var(writable_strategy), #var(readable_strategy));"
 
 pub ext fun TransformStream::readable(self: TransformStream) -> mut ReadableStream
     = "return #fun(ReadableStream::from_js)(#var(self).readable);"
@@ -57997,7 +57997,7 @@ pub ext fun UnderlyingSource::as_js(self: UnderlyingSource) -> JsValue = "
 struct WritableStream()
 
 pub ext fun WritableStream::from_any_any(underlying_sink: JsValue, strategy: JsValue) -> mut WritableStream
-    = "new WritableStream(#var(underlying_sink), #var(strategy));"
+    = "return new WritableStream(#var(underlying_sink), #var(strategy));"
 
 pub ext fun WritableStream::locked(self: WritableStream) -> Bool
     = "return #fun(Bool::from_js)(#var(self).locked);"
@@ -58038,7 +58038,7 @@ pub fun WritableStreamDefaultController::from_js(v: JsValue) -> mut WritableStre
 struct WritableStreamDefaultWriter()
 
 pub ext fun WritableStreamDefaultWriter::from_mwritable_stream(stream: mut WritableStream) -> mut WritableStreamDefaultWriter
-    = "new WritableStreamDefaultWriter(#fun(WritableStream::as_js)(#var(stream)));"
+    = "return new WritableStreamDefaultWriter(#fun(WritableStream::as_js)(#var(stream)));"
 
 pub ext fun WritableStreamDefaultWriter::closed(self: WritableStreamDefaultWriter) -> Promise[Unit]
     = "return #fun(Promise::from_js[Unit])(#var(self).closed);"
@@ -70630,7 +70630,7 @@ pub fun NADCAttributeTest::from_js(v: JsValue) -> mut NADCAttributeTest = JsValu
 struct OriginTrialsTest()
 
 pub ext fun OriginTrialsTest::new() -> mut OriginTrialsTest
-    = "new OriginTrialsTest();"
+    = "return new OriginTrialsTest();"
 
 pub ext fun OriginTrialsTest::normal_attribute(self: OriginTrialsTest) -> Bool
     = "return #fun(Bool::from_js)(#var(self).normalAttribute);"
@@ -72129,7 +72129,7 @@ pub ext fun PerformanceMark::from_mperformance_entry(base: mut PerformanceEntry)
 "
 
 pub ext fun PerformanceMark::from_str_mperformance_mark_options(mark_name: String, mark_options: mut PerformanceMarkOptions) -> mut PerformanceMark
-    = "new PerformanceMark(#fun(String::as_js)(#var(mark_name)), #fun(PerformanceMarkOptions::as_js)(#var(mark_options)));"
+    = "return new PerformanceMark(#fun(String::as_js)(#var(mark_name)), #fun(PerformanceMarkOptions::as_js)(#var(mark_options)));"
 
 pub ext fun PerformanceMark::detail(self: PerformanceMark) -> JsValue
     = "return #var(self).detail;"
@@ -72503,7 +72503,7 @@ pub ext fun PerformanceNavigationTiming::activation_start(self: PerformanceNavig
 struct PerformanceObserver()
 
 pub ext fun PerformanceObserver::from_f_mperformance_observer_entry_list_mperformance_observer_mperformance_observer_callback_options_unit(callback: Fun(mut PerformanceObserverEntryList, mut PerformanceObserver, mut PerformanceObserverCallbackOptions) -> Unit) -> mut PerformanceObserver
-    = "new PerformanceObserver(((p0, p1, p2) => { const r = #var(callback)(#fun(PerformanceObserverEntryList::from_js)(p0), #fun(PerformanceObserver::from_js)(p1), #fun(PerformanceObserverCallbackOptions::from_js)(p2)); return #fun(Unit::as_js)(r); }));"
+    = "return new PerformanceObserver(((p0, p1, p2) => { const r = #var(callback)(#fun(PerformanceObserverEntryList::from_js)(p0), #fun(PerformanceObserver::from_js)(p1), #fun(PerformanceObserverCallbackOptions::from_js)(p2)); return #fun(Unit::as_js)(r); }));"
 
 pub ext fun PerformanceObserver::supported_entry_types() -> JsValue
     = "return PerformanceObserver.supportedEntryTypes;"
@@ -73038,7 +73038,7 @@ pub ext fun Profiler::from_mevent_target(base: mut EventTarget) -> mut Profiler 
 "
 
 pub ext fun Profiler::from_mprofiler_init_options(options: mut ProfilerInitOptions) -> mut Profiler
-    = "new Profiler(#fun(ProfilerInitOptions::as_js)(#var(options)));"
+    = "return new Profiler(#fun(ProfilerInitOptions::as_js)(#var(options)));"
 
 pub ext fun Profiler::sample_interval(self: Profiler) -> Float
     = "return #fun(Float::from_js)(#var(self).sampleInterval);"
@@ -73593,7 +73593,7 @@ pub ext fun TrustedTypePolicyOptions::as_js(self: TrustedTypePolicyOptions) -> J
 "
 
 pub ext fun URL::from_str_str(url: String, base: String) -> mut URL
-    = "new URL(#fun(String::as_js)(#var(url)), #fun(String::as_js)(#var(base)));"
+    = "return new URL(#fun(String::as_js)(#var(url)), #fun(String::as_js)(#var(base)));"
 
 pub ext fun URL::href(self: URL) -> String
     = "return #fun(String::from_js)(#var(self).href);"
@@ -73679,7 +73679,7 @@ pub ext fun URL::to_json(__self: mut URL) -> String = "
 struct URLSearchParams()
 
 pub ext fun URLSearchParams::from_any(init: JsValue) -> mut URLSearchParams
-    = "new URLSearchParams(#var(init));"
+    = "return new URLSearchParams(#var(init));"
 
 pub ext fun URLSearchParams::size(self: URLSearchParams) -> Int
     = "return #fun(Int::from_js)(#var(self).size);"
@@ -73740,10 +73740,10 @@ pub val URLPatternComponent::Hash: String = "hash"
 struct URLPattern()
 
 pub ext fun URLPattern::from_any_str_murl_pattern_options(input: JsValue, base_url: String, options: mut URLPatternOptions) -> mut URLPattern
-    = "new URLPattern(#var(input), #fun(String::as_js)(#var(base_url)), #fun(URLPatternOptions::as_js)(#var(options)));"
+    = "return new URLPattern(#var(input), #fun(String::as_js)(#var(base_url)), #fun(URLPatternOptions::as_js)(#var(options)));"
 
 pub ext fun URLPattern::from_any_murl_pattern_options(input: JsValue, options: mut URLPatternOptions) -> mut URLPattern
-    = "new URLPattern(#var(input), #fun(URLPatternOptions::as_js)(#var(options)));"
+    = "return new URLPattern(#var(input), #fun(URLPatternOptions::as_js)(#var(options)));"
 
 pub ext fun URLPattern::protocol(self: URLPattern) -> String
     = "return #fun(String::from_js)(#var(self).protocol);"
@@ -73950,7 +73950,7 @@ pub ext fun PageRevealEvent::from_mevent(base: mut Event) -> mut PageRevealEvent
 "
 
 pub ext fun PageRevealEvent::from_str_mpage_reveal_event_init(type: String, event_init_dict: mut PageRevealEventInit) -> mut PageRevealEvent
-    = "new PageRevealEvent(#fun(String::as_js)(#var(type)), #fun(PageRevealEventInit::as_js)(#var(event_init_dict)));"
+    = "return new PageRevealEvent(#fun(String::as_js)(#var(type)), #fun(PageRevealEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun PageRevealEvent::view_transition(self: PageRevealEvent) -> Option[mut ViewTransition]
     = "return #fun(Option::from_js[mut ViewTransition])(#var(self).viewTransition);"
@@ -74107,7 +74107,7 @@ pub ext fun PageSwapEvent::from_mevent(base: mut Event) -> mut PageSwapEvent = "
 "
 
 pub ext fun PageSwapEvent::from_str_mpage_swap_event_init(type: String, event_init_dict: mut PageSwapEventInit) -> mut PageSwapEvent
-    = "new PageSwapEvent(#fun(String::as_js)(#var(type)), #fun(PageSwapEventInit::as_js)(#var(event_init_dict)));"
+    = "return new PageSwapEvent(#fun(String::as_js)(#var(type)), #fun(PageSwapEventInit::as_js)(#var(event_init_dict)));"
 
 pub ext fun PageSwapEvent::view_transition(self: PageSwapEvent) -> Option[mut ViewTransition]
     = "return #fun(Option::from_js[mut ViewTransition])(#var(self).viewTransition);"
@@ -74575,7 +74575,7 @@ pub ext fun SharedWorker::from_mevent_target(base: mut EventTarget) -> mut Share
 "
 
 pub ext fun SharedWorker::from_str_any(script_url: String, options: JsValue) -> mut SharedWorker
-    = "new SharedWorker(#fun(String::as_js)(#var(script_url)), #var(options));"
+    = "return new SharedWorker(#fun(String::as_js)(#var(script_url)), #var(options));"
 
 pub ext fun SharedWorker::port(self: SharedWorker) -> mut MessagePort
     = "return #fun(MessagePort::from_js)(#var(self).port);"
@@ -74775,7 +74775,7 @@ pub ext fun Worker::from_mevent_target(base: mut EventTarget) -> mut Worker = "
 "
 
 pub ext fun Worker::from_str_mworker_options(script_url: String, options: mut WorkerOptions) -> mut Worker
-    = "new Worker(#fun(String::as_js)(#var(script_url)), #fun(WorkerOptions::as_js)(#var(options)));"
+    = "return new Worker(#fun(String::as_js)(#var(script_url)), #fun(WorkerOptions::as_js)(#var(options)));"
 
 pub ext fun Worker::onmessage(self: Worker) -> Option[Fun(JsValue) -> JsValue]
     = "return #fun(Option::from_js[Fun(JsValue) -> JsValue])(#var(self).onmessage);"
@@ -75085,7 +75085,7 @@ pub val SupportedType::ImageSvgXml: String = "image/svg+xml"
 struct DOMParser()
 
 pub ext fun DOMParser::new() -> mut DOMParser
-    = "new DOMParser();"
+    = "return new DOMParser();"
 
 pub ext fun DOMParser::parse_from_string(__self: mut DOMParser, str: String, type: String) -> mut Document = "
     const r = #var(__self).parseFromString(#fun(String::as_js)(#var(str)), #var(type));
@@ -75099,7 +75099,7 @@ pub fun DOMParser::from_js(v: JsValue) -> mut DOMParser = JsValue::unsafe_as[mut
 struct XMLSerializer()
 
 pub ext fun XMLSerializer::new() -> mut XMLSerializer
-    = "new XMLSerializer();"
+    = "return new XMLSerializer();"
 
 pub ext fun XMLSerializer::serialize_to_string(__self: mut XMLSerializer, root: mut Node) -> String = "
     const r = #var(__self).serializeToString(#fun(Node::as_js)(#var(root)));
@@ -75113,7 +75113,7 @@ pub fun XMLSerializer::from_js(v: JsValue) -> mut XMLSerializer = JsValue::unsaf
 struct XPathEvaluator()
 
 pub ext fun XPathEvaluator::new() -> mut XPathEvaluator
-    = "new XPathEvaluator();"
+    = "return new XPathEvaluator();"
 
 pub ext fun XPathEvaluator::create_expression(__self: mut XPathEvaluator, expression: String, resolver: Option[Fun(String) -> Option[String]]) -> mut XPathExpression = "
     const r = #var(__self).createExpression(#fun(String::as_js)(#var(expression)), #fun(Option::as_js[Fun(String) -> Option[String]])(#var(resolver)));
@@ -75196,7 +75196,7 @@ pub val XPathResult::first_ordered_node_type: Int = 9
 struct XSLTProcessor()
 
 pub ext fun XSLTProcessor::new() -> mut XSLTProcessor
-    = "new XSLTProcessor();"
+    = "return new XSLTProcessor();"
 
 pub ext fun XSLTProcessor::import_stylesheet(__self: mut XSLTProcessor, style: mut Node) -> Unit = "
     const r = #var(__self).importStylesheet(#fun(Node::as_js)(#var(style)));
@@ -75299,7 +75299,7 @@ pub ext fun XMLHttpRequest::from_mevent_target(base: mut EventTarget) -> mut XML
 "
 
 pub ext fun XMLHttpRequest::new() -> mut XMLHttpRequest
-    = "new XMLHttpRequest();"
+    = "return new XMLHttpRequest();"
 
 pub ext fun XMLHttpRequest::onreadystatechange(self: XMLHttpRequest) -> Option[Fun(JsValue) -> JsValue]
     = "return #fun(Option::from_js[Fun(JsValue) -> JsValue])(#var(self).onreadystatechange);"
