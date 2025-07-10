@@ -1552,17 +1552,17 @@ pub ext fun Document::fonts(self: Document) -> mut FontFaceSet
     = "return #fun(FontFaceSet::from_js)(#var(self).fonts);"
 
 pub ext fun Document::prepend(__self: mut Document, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).prepend((#var(nodes)).map(v => v));
+    const r = #var(__self).prepend(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun Document::append(__self: mut Document, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).append((#var(nodes)).map(v => v));
+    const r = #var(__self).append(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun Document::replace_children(__self: mut Document, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).replaceChildren((#var(nodes)).map(v => v));
+    const r = #var(__self).replaceChildren(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -5700,37 +5700,37 @@ pub ext fun CSSMathClamp::operator(self: CSSMathClamp) -> String
     = "return #fun(String::from_js)(#var(self).operator);"
 
 pub ext fun CSSMathClamp::add(__self: mut CSSMathClamp, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathClamp::sub(__self: mut CSSMathClamp, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathClamp::mul(__self: mut CSSMathClamp, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathClamp::div(__self: mut CSSMathClamp, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathClamp::min(__self: mut CSSMathClamp, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathClamp::max(__self: mut CSSMathClamp, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathClamp::equals(__self: mut CSSMathClamp, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -5740,7 +5740,7 @@ pub ext fun CSSMathClamp::to(__self: mut CSSMathClamp, unit_: String) -> mut CSS
 "
 
 pub ext fun CSSMathClamp::to_sum(__self: mut CSSMathClamp, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -5857,37 +5857,37 @@ pub ext fun CSSMathInvert::operator(self: CSSMathInvert) -> String
     = "return #fun(String::from_js)(#var(self).operator);"
 
 pub ext fun CSSMathInvert::add(__self: mut CSSMathInvert, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathInvert::sub(__self: mut CSSMathInvert, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathInvert::mul(__self: mut CSSMathInvert, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathInvert::div(__self: mut CSSMathInvert, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathInvert::min(__self: mut CSSMathInvert, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathInvert::max(__self: mut CSSMathInvert, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathInvert::equals(__self: mut CSSMathInvert, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -5897,7 +5897,7 @@ pub ext fun CSSMathInvert::to(__self: mut CSSMathInvert, unit_: String) -> mut C
 "
 
 pub ext fun CSSMathInvert::to_sum(__self: mut CSSMathInvert, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -6005,7 +6005,7 @@ pub ext fun CSSMathMax::from_mcss_style_value(base: mut CSSStyleValue) -> mut CS
 "
 
 pub ext fun CSSMathMax::from_any(...args: List[JsValue]) -> mut CSSMathMax
-    = "return new CSSMathMax((#var(args)).map(v => v));"
+    = "return new CSSMathMax(...((#var(args)).map(v => v)));"
 
 pub ext fun CSSMathMax::values(self: CSSMathMax) -> mut CSSNumericArray
     = "return #fun(CSSNumericArray::from_js)(#var(self).values);"
@@ -6014,37 +6014,37 @@ pub ext fun CSSMathMax::operator(self: CSSMathMax) -> String
     = "return #fun(String::from_js)(#var(self).operator);"
 
 pub ext fun CSSMathMax::add(__self: mut CSSMathMax, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMax::sub(__self: mut CSSMathMax, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMax::mul(__self: mut CSSMathMax, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMax::div(__self: mut CSSMathMax, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMax::min(__self: mut CSSMathMax, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMax::max(__self: mut CSSMathMax, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMax::equals(__self: mut CSSMathMax, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -6054,7 +6054,7 @@ pub ext fun CSSMathMax::to(__self: mut CSSMathMax, unit_: String) -> mut CSSUnit
 "
 
 pub ext fun CSSMathMax::to_sum(__self: mut CSSMathMax, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -6162,7 +6162,7 @@ pub ext fun CSSMathMin::from_mcss_style_value(base: mut CSSStyleValue) -> mut CS
 "
 
 pub ext fun CSSMathMin::from_any(...args: List[JsValue]) -> mut CSSMathMin
-    = "return new CSSMathMin((#var(args)).map(v => v));"
+    = "return new CSSMathMin(...((#var(args)).map(v => v)));"
 
 pub ext fun CSSMathMin::values(self: CSSMathMin) -> mut CSSNumericArray
     = "return #fun(CSSNumericArray::from_js)(#var(self).values);"
@@ -6171,37 +6171,37 @@ pub ext fun CSSMathMin::operator(self: CSSMathMin) -> String
     = "return #fun(String::from_js)(#var(self).operator);"
 
 pub ext fun CSSMathMin::add(__self: mut CSSMathMin, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMin::sub(__self: mut CSSMathMin, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMin::mul(__self: mut CSSMathMin, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMin::div(__self: mut CSSMathMin, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMin::min(__self: mut CSSMathMin, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMin::max(__self: mut CSSMathMin, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathMin::equals(__self: mut CSSMathMin, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -6211,7 +6211,7 @@ pub ext fun CSSMathMin::to(__self: mut CSSMathMin, unit_: String) -> mut CSSUnit
 "
 
 pub ext fun CSSMathMin::to_sum(__self: mut CSSMathMin, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -6328,37 +6328,37 @@ pub ext fun CSSMathNegate::operator(self: CSSMathNegate) -> String
     = "return #fun(String::from_js)(#var(self).operator);"
 
 pub ext fun CSSMathNegate::add(__self: mut CSSMathNegate, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathNegate::sub(__self: mut CSSMathNegate, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathNegate::mul(__self: mut CSSMathNegate, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathNegate::div(__self: mut CSSMathNegate, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathNegate::min(__self: mut CSSMathNegate, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathNegate::max(__self: mut CSSMathNegate, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathNegate::equals(__self: mut CSSMathNegate, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -6368,7 +6368,7 @@ pub ext fun CSSMathNegate::to(__self: mut CSSMathNegate, unit_: String) -> mut C
 "
 
 pub ext fun CSSMathNegate::to_sum(__self: mut CSSMathNegate, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -6476,7 +6476,7 @@ pub ext fun CSSMathProduct::from_mcss_style_value(base: mut CSSStyleValue) -> mu
 "
 
 pub ext fun CSSMathProduct::from_any(...args: List[JsValue]) -> mut CSSMathProduct
-    = "return new CSSMathProduct((#var(args)).map(v => v));"
+    = "return new CSSMathProduct(...((#var(args)).map(v => v)));"
 
 pub ext fun CSSMathProduct::values(self: CSSMathProduct) -> mut CSSNumericArray
     = "return #fun(CSSNumericArray::from_js)(#var(self).values);"
@@ -6485,37 +6485,37 @@ pub ext fun CSSMathProduct::operator(self: CSSMathProduct) -> String
     = "return #fun(String::from_js)(#var(self).operator);"
 
 pub ext fun CSSMathProduct::add(__self: mut CSSMathProduct, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathProduct::sub(__self: mut CSSMathProduct, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathProduct::mul(__self: mut CSSMathProduct, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathProduct::div(__self: mut CSSMathProduct, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathProduct::min(__self: mut CSSMathProduct, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathProduct::max(__self: mut CSSMathProduct, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathProduct::equals(__self: mut CSSMathProduct, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -6525,7 +6525,7 @@ pub ext fun CSSMathProduct::to(__self: mut CSSMathProduct, unit_: String) -> mut
 "
 
 pub ext fun CSSMathProduct::to_sum(__self: mut CSSMathProduct, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -6633,7 +6633,7 @@ pub ext fun CSSMathSum::from_mcss_style_value(base: mut CSSStyleValue) -> mut CS
 "
 
 pub ext fun CSSMathSum::from_any(...args: List[JsValue]) -> mut CSSMathSum
-    = "return new CSSMathSum((#var(args)).map(v => v));"
+    = "return new CSSMathSum(...((#var(args)).map(v => v)));"
 
 pub ext fun CSSMathSum::values(self: CSSMathSum) -> mut CSSNumericArray
     = "return #fun(CSSNumericArray::from_js)(#var(self).values);"
@@ -6642,37 +6642,37 @@ pub ext fun CSSMathSum::operator(self: CSSMathSum) -> String
     = "return #fun(String::from_js)(#var(self).operator);"
 
 pub ext fun CSSMathSum::add(__self: mut CSSMathSum, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathSum::sub(__self: mut CSSMathSum, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathSum::mul(__self: mut CSSMathSum, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathSum::div(__self: mut CSSMathSum, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathSum::min(__self: mut CSSMathSum, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathSum::max(__self: mut CSSMathSum, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathSum::equals(__self: mut CSSMathSum, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -6682,7 +6682,7 @@ pub ext fun CSSMathSum::to(__self: mut CSSMathSum, unit_: String) -> mut CSSUnit
 "
 
 pub ext fun CSSMathSum::to_sum(__self: mut CSSMathSum, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -6777,37 +6777,37 @@ pub ext fun CSSMathValue::operator(self: CSSMathValue) -> String
     = "return #fun(String::from_js)(#var(self).operator);"
 
 pub ext fun CSSMathValue::add(__self: mut CSSMathValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathValue::sub(__self: mut CSSMathValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathValue::mul(__self: mut CSSMathValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathValue::div(__self: mut CSSMathValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathValue::min(__self: mut CSSMathValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathValue::max(__self: mut CSSMathValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSMathValue::equals(__self: mut CSSMathValue, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -6817,7 +6817,7 @@ pub ext fun CSSMathValue::to(__self: mut CSSMathValue, unit_: String) -> mut CSS
 "
 
 pub ext fun CSSMathValue::to_sum(__self: mut CSSMathValue, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -7013,37 +7013,37 @@ pub ext fun CSSNumericValue::from_mcss_style_value(base: mut CSSStyleValue) -> m
 "
 
 pub ext fun CSSNumericValue::add(__self: mut CSSNumericValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSNumericValue::sub(__self: mut CSSNumericValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSNumericValue::mul(__self: mut CSSNumericValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSNumericValue::div(__self: mut CSSNumericValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSNumericValue::min(__self: mut CSSNumericValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSNumericValue::max(__self: mut CSSNumericValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSNumericValue::equals(__self: mut CSSNumericValue, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -7053,7 +7053,7 @@ pub ext fun CSSNumericValue::to(__self: mut CSSNumericValue, unit_: String) -> m
 "
 
 pub ext fun CSSNumericValue::to_sum(__self: mut CSSNumericValue, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -7833,37 +7833,37 @@ pub ext fun CSSUnitValue::unit_(self: CSSUnitValue) -> String
     = "return #fun(String::from_js)(#var(self).unit);"
 
 pub ext fun CSSUnitValue::add(__self: mut CSSUnitValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).add((#var(values)).map(v => v));
+    const r = #var(__self).add(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSUnitValue::sub(__self: mut CSSUnitValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).sub((#var(values)).map(v => v));
+    const r = #var(__self).sub(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSUnitValue::mul(__self: mut CSSUnitValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).mul((#var(values)).map(v => v));
+    const r = #var(__self).mul(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSUnitValue::div(__self: mut CSSUnitValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).div((#var(values)).map(v => v));
+    const r = #var(__self).div(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSUnitValue::min(__self: mut CSSUnitValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).min((#var(values)).map(v => v));
+    const r = #var(__self).min(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSUnitValue::max(__self: mut CSSUnitValue, ...values: List[JsValue]) -> mut CSSNumericValue = "
-    const r = #var(__self).max((#var(values)).map(v => v));
+    const r = #var(__self).max(...((#var(values)).map(v => v)));
     return #fun(CSSNumericValue::from_js)(r);
 "
 
 pub ext fun CSSUnitValue::equals(__self: mut CSSUnitValue, ...values: List[JsValue]) -> Bool = "
-    const r = #var(__self).equals((#var(values)).map(v => v));
+    const r = #var(__self).equals(...((#var(values)).map(v => v)));
     return #fun(Bool::from_js)(r);
 "
 
@@ -7873,7 +7873,7 @@ pub ext fun CSSUnitValue::to(__self: mut CSSUnitValue, unit_: String) -> mut CSS
 "
 
 pub ext fun CSSUnitValue::to_sum(__self: mut CSSUnitValue, ...units: List[String]) -> mut CSSMathSum = "
-    const r = #var(__self).toSum((#var(units)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).toSum(...((#var(units)).map(v => #fun(String::as_js)(v))));
     return #fun(CSSMathSum::from_js)(r);
 "
 
@@ -8340,17 +8340,17 @@ pub ext fun Element::get_animations(__self: mut Element, options: mut GetAnimati
 "
 
 pub ext fun Element::prepend(__self: mut Element, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).prepend((#var(nodes)).map(v => v));
+    const r = #var(__self).prepend(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun Element::append(__self: mut Element, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).append((#var(nodes)).map(v => v));
+    const r = #var(__self).append(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun Element::replace_children(__self: mut Element, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).replaceChildren((#var(nodes)).map(v => v));
+    const r = #var(__self).replaceChildren(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -8370,17 +8370,17 @@ pub ext fun Element::query_selector_all(__self: mut Element, selectors: String) 
 "
 
 pub ext fun Element::before(__self: mut Element, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).before((#var(nodes)).map(v => v));
+    const r = #var(__self).before(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun Element::after(__self: mut Element, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).after((#var(nodes)).map(v => v));
+    const r = #var(__self).after(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun Element::replace_with(__self: mut Element, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).replaceWith((#var(nodes)).map(v => v));
+    const r = #var(__self).replaceWith(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -8423,12 +8423,12 @@ pub ext fun StylePropertyMap::size(self: StylePropertyMap) -> Int
     = "return #fun(Int::from_js)(#var(self).size);"
 
 pub ext fun StylePropertyMap::set(__self: mut StylePropertyMap, property: String, ...values: List[JsValue]) -> Unit = "
-    const r = #var(__self).set(#fun(String::as_js)(#var(property)), (#var(values)).map(v => v));
+    const r = #var(__self).set(#fun(String::as_js)(#var(property)), ...((#var(values)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun StylePropertyMap::append(__self: mut StylePropertyMap, property: String, ...values: List[JsValue]) -> Unit = "
-    const r = #var(__self).append(#fun(String::as_js)(#var(property)), (#var(values)).map(v => v));
+    const r = #var(__self).append(#fun(String::as_js)(#var(property)), ...((#var(values)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -10395,17 +10395,17 @@ pub ext fun CharacterData::when(__self: mut CharacterData, type: String, options
 "
 
 pub ext fun CharacterData::before(__self: mut CharacterData, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).before((#var(nodes)).map(v => v));
+    const r = #var(__self).before(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun CharacterData::after(__self: mut CharacterData, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).after((#var(nodes)).map(v => v));
+    const r = #var(__self).after(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun CharacterData::replace_with(__self: mut CharacterData, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).replaceWith((#var(nodes)).map(v => v));
+    const r = #var(__self).replaceWith(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -10485,7 +10485,7 @@ pub ext fun ChildNodePart::root_container(self: ChildNodePart) -> mut Node
     = "return #fun(Node::from_js)(#var(self).rootContainer);"
 
 pub ext fun ChildNodePart::replace_children(__self: mut ChildNodePart, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).replaceChildren((#var(nodes)).map(v => v));
+    const r = #var(__self).replaceChildren(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -11287,12 +11287,12 @@ pub ext fun Document::close(__self: mut Document) -> Unit = "
 "
 
 pub ext fun Document::write_str(__self: mut Document, ...text: List[String]) -> Unit = "
-    const r = #var(__self).write((#var(text)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).write(...((#var(text)).map(v => #fun(String::as_js)(v))));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun Document::writeln_str(__self: mut Document, ...text: List[String]) -> Unit = "
-    const r = #var(__self).writeln((#var(text)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).writeln(...((#var(text)).map(v => #fun(String::as_js)(v))));
     return #fun(Unit::from_js)(r);
 "
 
@@ -11307,12 +11307,12 @@ pub ext fun Document::writeln_mtrusted_html(__self: mut Document, text: mut Trus
 "
 
 pub ext fun Document::write_mtrusted_html_any(__self: mut Document, text_1: mut TrustedHTML, ...text: List[JsValue]) -> Unit = "
-    const r = #var(__self).write(#fun(TrustedHTML::as_js)(#var(text_1)), (#var(text)).map(v => v));
+    const r = #var(__self).write(#fun(TrustedHTML::as_js)(#var(text_1)), ...((#var(text)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun Document::writeln_mtrusted_html_any(__self: mut Document, text_1: mut TrustedHTML, ...text: List[JsValue]) -> Unit = "
-    const r = #var(__self).writeln(#fun(TrustedHTML::as_js)(#var(text_1)), (#var(text)).map(v => v));
+    const r = #var(__self).writeln(#fun(TrustedHTML::as_js)(#var(text_1)), ...((#var(text)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -11744,17 +11744,17 @@ pub ext fun DocumentFragment::when(__self: mut DocumentFragment, type: String, o
 "
 
 pub ext fun DocumentFragment::prepend(__self: mut DocumentFragment, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).prepend((#var(nodes)).map(v => v));
+    const r = #var(__self).prepend(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun DocumentFragment::append(__self: mut DocumentFragment, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).append((#var(nodes)).map(v => v));
+    const r = #var(__self).append(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun DocumentFragment::replace_children(__self: mut DocumentFragment, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).replaceChildren((#var(nodes)).map(v => v));
+    const r = #var(__self).replaceChildren(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -12033,17 +12033,17 @@ pub ext fun DocumentType::when(__self: mut DocumentType, type: String, options: 
 "
 
 pub ext fun DocumentType::before(__self: mut DocumentType, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).before((#var(nodes)).map(v => v));
+    const r = #var(__self).before(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun DocumentType::after(__self: mut DocumentType, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).after((#var(nodes)).map(v => v));
+    const r = #var(__self).after(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun DocumentType::replace_with(__self: mut DocumentType, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).replaceWith((#var(nodes)).map(v => v));
+    const r = #var(__self).replaceWith(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -12205,12 +12205,12 @@ pub ext fun DOMTokenList::contains(__self: mut DOMTokenList, token: String) -> B
 "
 
 pub ext fun DOMTokenList::add(__self: mut DOMTokenList, ...tokens: List[String]) -> Unit = "
-    const r = #var(__self).add((#var(tokens)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).add(...((#var(tokens)).map(v => #fun(String::as_js)(v))));
     return #fun(Unit::from_js)(r);
 "
 
 pub ext fun DOMTokenList::remove(__self: mut DOMTokenList, ...tokens: List[String]) -> Unit = "
-    const r = #var(__self).remove((#var(tokens)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).remove(...((#var(tokens)).map(v => #fun(String::as_js)(v))));
     return #fun(Unit::from_js)(r);
 "
 
@@ -27563,7 +27563,7 @@ pub val HighlightType::GrammarError: String = "grammar-error"
 struct Highlight()
 
 pub ext fun Highlight::from_mabstract_range(...init_ranges: List[mut AbstractRange]) -> mut Highlight
-    = "return new Highlight((#var(init_ranges)).map(v => #fun(AbstractRange::as_js)(v)));"
+    = "return new Highlight(...((#var(init_ranges)).map(v => #fun(AbstractRange::as_js)(v))));"
 
 pub ext fun Highlight::priority(self: Highlight) -> Int
     = "return #fun(Int::from_js)(#var(self).priority);"
@@ -46992,7 +46992,7 @@ pub ext fun HTMLSlotElement::assigned_elements(__self: mut HTMLSlotElement, opti
 "
 
 pub ext fun HTMLSlotElement::assign(__self: mut HTMLSlotElement, ...nodes: List[JsValue]) -> Unit = "
-    const r = #var(__self).assign((#var(nodes)).map(v => v));
+    const r = #var(__self).assign(...((#var(nodes)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -70183,7 +70183,7 @@ pub ext fun Internals::promise_check(__self: mut Internals, arg_1: Int, arg_2: B
 "
 
 pub ext fun Internals::promise_check_without_exception_state(__self: mut Internals, arg_1: JsObject, arg_2: String, ...variadic: List[String]) -> Promise[JsValue] = "
-    const r = #var(__self).promiseCheckWithoutExceptionState(#var(arg_1), #fun(String::as_js)(#var(arg_2)), (#var(variadic)).map(v => #fun(String::as_js)(v)));
+    const r = #var(__self).promiseCheckWithoutExceptionState(#var(arg_1), #fun(String::as_js)(#var(arg_2)), ...((#var(variadic)).map(v => #fun(String::as_js)(v))));
     return #fun(Promise::from_js[JsValue])(r);
 "
 
@@ -71706,7 +71706,7 @@ pub ext fun Performance::measure_user_agent_specific_memory(__self: mut Performa
 "
 
 pub ext fun Performance::bind(__self: mut Performance, inner_function: Fun(JsValue) -> JsValue, this_arg: JsValue, ...args: List[JsValue]) -> Fun(JsValue) -> JsValue = "
-    const r = #var(__self).bind(((p0) => { const r = #var(inner_function)(p0); return r; }), #var(this_arg), (#var(args)).map(v => v));
+    const r = #var(__self).bind(((p0) => { const r = #var(inner_function)(p0); return r; }), #var(this_arg), ...((#var(args)).map(v => v)));
     return ((p0) => { const r = r(p0); return r; });
 "
 
@@ -73449,17 +73449,17 @@ pub ext fun TrustedTypePolicy::name(self: TrustedTypePolicy) -> String
     = "return #fun(String::from_js)(#var(self).name);"
 
 pub ext fun TrustedTypePolicy::create_html(__self: mut TrustedTypePolicy, input: String, ...args: List[JsValue]) -> mut TrustedHTML = "
-    const r = #var(__self).createHTML(#fun(String::as_js)(#var(input)), (#var(args)).map(v => v));
+    const r = #var(__self).createHTML(#fun(String::as_js)(#var(input)), ...((#var(args)).map(v => v)));
     return #fun(TrustedHTML::from_js)(r);
 "
 
 pub ext fun TrustedTypePolicy::create_script(__self: mut TrustedTypePolicy, input: String, ...args: List[JsValue]) -> mut TrustedScript = "
-    const r = #var(__self).createScript(#fun(String::as_js)(#var(input)), (#var(args)).map(v => v));
+    const r = #var(__self).createScript(#fun(String::as_js)(#var(input)), ...((#var(args)).map(v => v)));
     return #fun(TrustedScript::from_js)(r);
 "
 
 pub ext fun TrustedTypePolicy::create_script_url(__self: mut TrustedTypePolicy, input: String, ...args: List[JsValue]) -> mut TrustedScriptURL = "
-    const r = #var(__self).createScriptURL(#fun(String::as_js)(#var(input)), (#var(args)).map(v => v));
+    const r = #var(__self).createScriptURL(#fun(String::as_js)(#var(input)), ...((#var(args)).map(v => v)));
     return #fun(TrustedScriptURL::from_js)(r);
 "
 
@@ -74468,7 +74468,7 @@ pub ext fun DedicatedWorkerGlobalScope::cancel_animation_frame(__self: mut Dedic
 "
 
 pub ext fun DedicatedWorkerGlobalScope::import_scripts(__self: mut DedicatedWorkerGlobalScope, ...urls: List[JsValue]) -> Unit = "
-    const r = #var(__self).importScripts((#var(urls)).map(v => v));
+    const r = #var(__self).importScripts(...((#var(urls)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -74720,7 +74720,7 @@ pub ext fun SharedWorkerGlobalScope::close(__self: mut SharedWorkerGlobalScope) 
 "
 
 pub ext fun SharedWorkerGlobalScope::import_scripts(__self: mut SharedWorkerGlobalScope, ...urls: List[JsValue]) -> Unit = "
-    const r = #var(__self).importScripts((#var(urls)).map(v => v));
+    const r = #var(__self).importScripts(...((#var(urls)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
@@ -74898,7 +74898,7 @@ pub ext fun WorkerGlobalScope::trusted_types(self: WorkerGlobalScope) -> mut Tru
     = "return #fun(TrustedTypePolicyFactory::from_js)(#var(self).trustedTypes);"
 
 pub ext fun WorkerGlobalScope::import_scripts(__self: mut WorkerGlobalScope, ...urls: List[JsValue]) -> Unit = "
-    const r = #var(__self).importScripts((#var(urls)).map(v => v));
+    const r = #var(__self).importScripts(...((#var(urls)).map(v => v)));
     return #fun(Unit::from_js)(r);
 "
 
